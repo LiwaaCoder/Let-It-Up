@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -181,7 +182,10 @@ public class logInActivity extends AppCompatActivity
                 pd.dismiss();
                 String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
                 Toast.makeText(logInActivity.this,"Logged In as"+phone,Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(logInActivity.this, Concert_Schedule_activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
                     @Override

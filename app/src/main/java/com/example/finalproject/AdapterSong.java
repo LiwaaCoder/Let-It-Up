@@ -17,7 +17,7 @@ import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
 
-public class Adapter_Song extends RecyclerView.Adapter<Adapter_Song.SongViewHolder>
+class Adapter_Song extends RecyclerView.Adapter<Adapter_Song.SongViewHolder>
 {
 
     private Context context;
@@ -34,8 +34,9 @@ public class Adapter_Song extends RecyclerView.Adapter<Adapter_Song.SongViewHold
     }
 
     @Override
-    public SongViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_song, parent, false);
+    public SongViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_songs, parent, false);
         SongViewHolder mySongViewHolder = new SongViewHolder(view);
         return mySongViewHolder;
     }
@@ -59,26 +60,20 @@ public class Adapter_Song extends RecyclerView.Adapter<Adapter_Song.SongViewHold
         final Handler handler = new Handler();
         final int delay = 20; // 1000 milliseconds == 1 second
 
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                MyImageUtils.getInstance().load(song.getImage(), holder.song_IMG_image);
-            }
-        }, delay);
+        handler.postDelayed(() -> MyImageUtils.getInstance().load(song.getImage(), holder.song_IMG_image), delay);
 
     }
 
-    class SongViewHolder extends RecyclerView.ViewHolder {
+    class SongViewHolder extends RecyclerView.ViewHolder
+    {
 
-        private MaterialTextView song_LBL_likes;
-        private MaterialTextView song_LBL_views;
+
         private MaterialTextView song_LBL_duration;
         private MaterialTextView song_LBL_name;
         private AppCompatImageView song_IMG_image;
 
         public SongViewHolder(View itemView) {
             super(itemView);
-            song_LBL_likes = itemView.findViewById(R.id.song_LBL_likes);
-            song_LBL_views = itemView.findViewById(R.id.song_LBL_views);
             song_LBL_duration = itemView.findViewById(R.id.song_LBL_duration);
             song_LBL_name = itemView.findViewById(R.id.song_LBL_name);
             song_IMG_image = itemView.findViewById(R.id.song_IMG_image);

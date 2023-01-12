@@ -74,7 +74,7 @@ public class Activity_Splash extends AppCompatActivity
 
     private void replaceActivity()
     {
-        Intent intent = new Intent(this, Activity_Menu.class);
+        Intent intent = new Intent(this, logInActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
         finish();

@@ -1,35 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:background="#151727"
-    >
+    android:padding="16dp"
+    tools:context=".LyricsAndFlashActivity">
 
-    <TextView
-        android:id="@+id/text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        android:layout_marginTop="80dp"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lyrics_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Song lyrics will go here ..." />
-
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:layout_marginTop="50dp"
-        android:contentDescription="Flashing lights"
-        android:src="@drawable/flash" />
+        android:textColor="@color/black"
+        android:scrollbars="vertical"
+        />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/toggle_flash_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Show lyrics"
-        android:backgroundTint="#FF008000"/>
+        android:text="Toggle Flash"
+        />
 
 </LinearLayout>

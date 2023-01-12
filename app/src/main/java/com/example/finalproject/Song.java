@@ -40,23 +40,6 @@ public class Song
         return this;
     }
 
-    public long getViews() {
-        return views;
-    }
-
-    public Song setViews(long views) {
-        this.views = views;
-        return this;
-    }
-
-    public long getLikes() {
-        return likes;
-    }
-
-    public Song setLikes(long likes) {
-        this.likes = likes;
-        return this;
-    }
 
     public boolean isFavorite() {
         return favorite;

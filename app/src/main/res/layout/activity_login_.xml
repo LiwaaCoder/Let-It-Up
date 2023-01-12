@@ -124,7 +124,8 @@
     </TextView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/code_resend"
+        android:id="@+id/code_submit"
+
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_gravity="center"
@@ -135,7 +136,8 @@
     </com.google.android.material.button.MaterialButton>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/code_submit"
+        android:id="@+id/code_resend"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

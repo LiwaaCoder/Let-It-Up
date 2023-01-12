@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head ><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style type="text/css">
+					.heateor_sss_button_instagram span.heateor_sss_svg,a.heateor_sss_instagram span.heateor_sss_svg{background:radial-gradient(circle at 30% 107%,#fdf497 0,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+										div.heateor_sss_vertical_sharing  a.heateor_sss_button_instagram span{background:#dbafaf!important;}div.heateor_sss_floating_follow_icons_container a.heateor_sss_button_instagram span{background:#dbafaf;}
+							div.heateor_sss_vertical_sharing a.heateor_sss_button_instagram span:hover{background:#eed5cd!important;}div.heateor_sss_floating_follow_icons_container a.heateor_sss_button_instagram span:hover{background:#eed5cd;}
+				.heateor_sss_horizontal_sharing .heateor_sss_svg,.heateor_sss_standard_follow_icons_container .heateor_sss_svg{
+							color: #fff;
+						border-width: 0px;
+			border-style: solid;
+			border-color: transparent;
+		}
+					.heateor_sss_horizontal_sharing .heateorSssTCBackground{
+				color:#666;
+			}
+					.heateor_sss_horizontal_sharing span.heateor_sss_svg:hover,.heateor_sss_standard_follow_icons_container span.heateor_sss_svg:hover{
+						border-color: transparent;
+		}
+		.heateor_sss_vertical_sharing span.heateor_sss_svg,.heateor_sss_floating_follow_icons_container span.heateor_sss_svg{
+							background-color: #dbafaf!important;
+				background: #dbafaf!important;
+							color: #fff;
+						border-width: 0px;
+			border-style: solid;
+			border-color: 0;
+		}
+				.heateor_sss_vertical_sharing .heateorSssTCBackground{
+			color:#666;
+		}
+						.heateor_sss_vertical_sharing span.heateor_sss_svg:hover,.heateor_sss_floating_follow_icons_container span.heateor_sss_svg:hover{
+							background-color: #eed5cd!important;
+				background: #eed5cd!important;
+						border-color: 2;
+		}
+		@media screen and (max-width:783px) {.heateor_sss_vertical_sharing{display:none!important}}div.heateor_sss_sharing_title{text-align:center}div.heateor_sss_sharing_ul{width:100%;text-align:center;}div.heateor_sss_horizontal_sharing div.heateor_sss_sharing_ul a{float:none!important;display:inline-block;}		</style>
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+		<!-- Meta Tag Manager -->
+		<meta name="facebook-domain-verification" content="d5y0ngqk4l90sziupec1qsy6iturfe" />
+		<!-- / Meta Tag Manager -->
+
+			<style type="text/css">
+				.slide-excerpt { width: 50%; }
+				.slide-excerpt { top: 0; }
+				.slide-excerpt { right: 0; }
+				.flexslider { max-width: 1050px; max-height: 700px; }
+				.slide-image { max-height: 700px; }
+			</style>
+			<style type="text/css">
+				@media only screen
+				and (min-device-width : 320px)
+				and (max-device-width : 480px) {
+					.slide-excerpt { display: none !important; }
+				}
+			</style> 
+	<!-- This site is optimized with the Yoast SEO plugin v19.5.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>40 Breathtaking Cloud Aesthetic Wallpaper For iPhones (Free Download!)</title><style id="rocket-critical-css">article,aside,figure,header,main,nav,section{display:block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}h1{font-size:2em;margin:.67em 0}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}button,input{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button{text-transform:none}button,input[type=submit]{-webkit-appearance:button}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}*,input[type="search"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.entry:before,.entry-content:before,.site-container:before,.site-header:before,.site-inner:before,.widget:before,.wrap:before{content:" ";display:table}.entry:after,.entry-content:after,.site-container:after,.site-header:after,.site-inner:after,.widget:after,.wrap:after{clear:both;content:" ";display:table}html{font-size:62.5%}body{background-color:#fff;color:#444;font:normal 14px Work Sans,sans-serif;letter-spacing:.75px;line-height:2.5rem;-webkit-font-smoothing:subpixel-antialiased}a{color:#222222;text-decoration:none}.entry-content a:not(.button):not(.more-link){color:#ccc7c6}p{margin:0 0 22px;padding:0}ul{margin:0;padding:0;color:#222}li{list-style-type:none}em,i{font-style:italic}h1,h4{font-family:'Cardo',serif;font-weight:normal;letter-spacing:1.5px;line-height:1.5;margin:0 0 20px;color:#222;-webkit-font-smoothing:antialiased}h1{font-size:34px}h4{font-size:24px}img{max-width:100%}img{height:auto}p img{margin-bottom:0!important}input{background-color:#fff;border:1px solid #eee9e8;border-radius:0;box-shadow:none;color:#222;font-size:13px;font-weight:400;letter-spacing:.05em;padding:14px;width:100%}::-moz-placeholder{color:#777;opacity:1}::-webkit-input-placeholder{color:#777}button,input[type="submit"]{background-color:#222;color:#fff;border:0;font:normal 10px Montserrat,sans-serif;letter-spacing:2px;padding:14px 24px;margin:10px 0;text-transform:uppercase;white-space:normal;width:auto}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-results-button{display:none}.screen-reader-text{display:none}.screen-reader-text{background-color:#fff;border:0;clip:rect(0,0,0,0);color:#9f9f9f;height:1px;overflow:hidden;position:absolute!important;width:1px}.site-container{-webkit-animation:fadein 1s;-moz-animation:fadein 1s;-ms-animation:fadein 1s;-o-animation:fadein 1s;animation:fadein 1s;margin:0 auto;margin-top:60px;min-height:100vh}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}@-ms-keyframes fadein{from{opacity:0}to{opacity:1}}@-o-keyframes fadein{from{opacity:0}to{opacity:1}}.site-inner,.wrap{float:none;margin:0 auto}.site-inner{background-color:#fff;clear:both;position:relative;z-index:9;word-wrap:break-word;margin-top:30px}.avatar{border-radius:50%;float:left}.alignleft .avatar{margin-right:24px}.search-form{overflow:hidden}.search-form input[type="search"]{width:auto;background:#fff;margin-right:10px;padding:14px 10px 13px;font-size:12px}.entry-title{font-size:28px}.enews .widget-title:after{display:none}.sidebar .enews .widget-title:after{margin-bottom:26px}.content-sidebar-wrap{max-width:80%;margin:20px auto 0}header.entry-header{text-align:left}.post.has-post-thumbnail p{text-align:left}.alignleft{float:left;text-align:left}.aligncenter{display:block;margin:0 auto 24px}.widget{word-wrap:break-word}.sidebar .widget-title{text-align:center;font:normal 12px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:2px}.sidebar .widget-title:after{content:"";display:block;margin:0 auto;border-bottom:1px solid black;width:60px;padding-top:18px;margin-bottom:24px}.enews-widget{color:#777}.enews-widget input{margin-bottom:16px}.sidebar .enews-widget{background:#f8f8f7;padding:30px 25px 15px;font-size:11px}.sidebar .enews .widget-title{font:normal 22px Cardo,serif;text-transform:none;letter-spacing:1.5px}.site-header{background-color:#fff;border-bottom:1px solid transparent;position:fixed;top:0;width:100%;z-index:9999;padding:8px 40px 0;box-shadow:0 3px 10px rgba(214,214,214,0.25)}.site-header .wrap{max-width:100%}.title-area{float:left;padding-bottom:10px;padding-top:10px;margin-top:10px;padding-right:30px;margin-right:-15px;padding-left:55px;margin-bottom:15px;border-right:1px solid #d3cecd}.header-image .title-area{height:65px;padding:0;width:225px;margin-left:35px;margin-bottom:0;margin-right:-30px;margin-top:-4px;border-right:0}.site-title{font:normal 18px Montserrat,sans-seirf;line-height:1.2;margin-bottom:0;text-transform:uppercase;letter-spacing:4px}.site-title a{color:#222;text-decoration:none}.header-image .site-title>a{background-size:contain!important;background-position:left center!important;float:left;min-height:auto;width:225px;height:65px}.header-image .site-title,.site-description{display:block;height:0;margin-bottom:0;text-indent:-9999px}.genesis-nav-menu{line-height:1}.genesis-nav-menu .menu-item{display:inline-block}.genesis-nav-menu li li{margin-left:0}.genesis-nav-menu a{color:#222;display:block;font:normal 10px Montserrat,sans-serif;letter-spacing:3px;padding:24px 30px;text-transform:uppercase}.genesis-nav-menu>li>a{border-bottom:5px solid transparent}.genesis-nav-menu>.menu-item>a{text-transform:uppercase}.genesis-nav-menu .sub-menu{left:-9999px;opacity:0;position:absolute;width:192px;z-index:9999;pointer:cursor;background-color:#f9f9f9!important;padding:10px 5px;text-align:left;box-shadow:0 3px 10px rgba(214,214,214,0.25)}.genesis-nav-menu .sub-menu a{color:#222;border:none!important;padding:11px 18px;line-height:1.9em;position:relative;width:190px;word-wrap:break-word;pointer:cursor;z-index:9999;font-weight:6px!important;letter-spacing:2px}.nav-primary{text-transform:uppercase;z-index:999;text-align:center;float:left;padding-left:40px}.nav-primary .widget-wrap a{padding:0;display:inline;z-index:1}.nav-primary .widget-wrap{position:absolute;margin-top:-76px;background:#f9f9f9;right:40px;padding:0 14px 0 24px;height:77px;z-index:9999}.nav-primary .social{position:relative;top:34px}.nav-primary .genesis-nav-menu>.search{right:0;float:right!important}li a.icon-search:before{font-family:FontAwesome;font-weight:normal;font-style:normal;text-decoration:inherit;content:"\f002";font-size:12px;z-index:9999}li a.icon-search{z-index:9999;color:#222;float:right!important;height:74px;margin-top:-73px!important;width:40px;padding:0;padding-top:33px;right:0;margin-top:-11px;background:#f9f9f9;position:absolute;padding-right:25px}.search-div{display:none;position:absolute;right:0;width:300px;padding:18px;background:#f9f9f9;margin-top:1px}.search-div .search-form{position:relative}.search-div .search-form input[type="search"]{width:100%;padding:14px;font-size:12px}.search-div .search-form input[type="submit"]{position:absolute;right:0;bottom:0;padding:14px;height:44px;margin-bottom:0}.nav-primary .search-form{background:#fff}.nav-primary .search-form input[type="search"]{font-size:12px;padding:18px 13px 16px;border-bottom:0;border:0!important}.nav-primary .search-form input[type="submit"]{font-size:80%!important;background:transparent;top:-7px;color:#111!important}@media only screen and (max-width:800px){.nav-primary .genesis-nav-menu>.search{display:block;text-align:left}.search-div{left:0}.nav-primary .genesis-nav-menu>.search{float:none}}@media only screen and (max-width:340px){.search-div{width:auto}}.content{float:left;width:68%}.entry{margin-bottom:5%}p.entry-meta{letter-spacing:2px;margin-bottom:0;text-transform:uppercase;font:normal 10px Montserrat,sans-serif;color:#222}.entry-header{text-align:center}.entry-header p.entry-meta{letter-spacing:2px;margin-bottom:16px;font:normal 9px Montserrat,sans-seirf}.entry-categories::before{display:inline-block;font:normal 20px/1 "dashicons";margin-right:5px;margin-top:2px;vertical-align:top}.sidebar{float:right;width:27%;margin-bottom:25px}.sidebar p:last-child{margin-bottom:0}.sidebar .widget{margin-bottom:45px}.social i,.nav-primary .social i{color:#222;font-family:fontello;margin-right:15px}.icon-pinterest{font-size:12px}.icon-email{font-size:14px}@media only screen and (max-width:767px){.single .site-container{margin-top:75px}}.offscreen-content{background-color:rgba(249,249,249,1.0);display:none;height:100%;left:0;overflow-y:hidden;padding:20px;position:fixed;text-align:center;top:0;width:30%;z-index:9998}.offscreen-content .wrap{margin-left:auto;margin-right:auto;max-width:720px}.offscreen-container{display:table;height:100vh;overflow:hidden;table-layout:fixed;text-align:center;width:100%;margin-top:-20px}.offscreen-container .widget-area{display:table-cell;padding-bottom:20px;vertical-align:middle;width:100%}.offscreen-content-icon,.offscreen-content-toggle{position:fixed;top:-10px;z-index:9998}button.offscreen-content-toggle{left:0}.offscreen-content button,.offscreen-content-icon button{color:#222;background:#ece7e6;height:75px;outline:none;margin-right:100px!important}.offscreen-content-icon .icon{font-size:21px!important}.offscreen-content .widget_nav_menu li{font:normal 13px Montserrat,sans-serif;text-transform:uppercase;letter-spacing:3px;line-height:3.5rem}.widget-area .offscreen-content-toggle{left:0;background:transparent}.widget-area .offscreen-content-toggle .icon{font-size:36px}.offscreen-content .widget{margin-bottom:45px}.offscreen-content .widget-title{float:none;text-align:center;width:100%;font:italic 24px Cardo,serif;margin-bottom:20px;letter-spacing:2px;text-transform:none;-webkit-font-smoothing:antialiased}.offscreen-content .widget-title:after{display:none}.sub-menu-toggle,.menu-toggle{display:none;visibility:hidden}@media only screen and (min-width:1022px){nav{display:block!important}}@media only screen and (max-width:1021px){.menu-toggle,.sub-menu-toggle{display:block!important;background-color:#fff;color:#222;font-size:2.5em;overflow:hidden;width:100%;text-align:center;visibility:visible}.nav-primary .widget-wrap{background:#fff}.nav-primary li a{font-size:13px;padding:18px}.nav-primary .social i{font-size:150%}button.menu-toggle{background-color:#fff;color:#222;font-weight:300;display:inline-block!important;margin:0 auto;border:0;padding:0;float:right;text-align:right;width:auto}button.sub-menu-toggle{background:transparent!important;color:#222;width:100%;border:0;padding:0;padding-right:20px;text-align:right;margin-top:5px}.sub-menu-toggle{padding:18px;padding:1.8rem;font-size:2em;position:absolute;right:0;top:0;z-index:9999}.sub-menu-toggle:before{content:"+";font-size:18px}.nav-primary{position:relative;width:100%;background:#fff;padding-left:10px;margin-top:15px;overflow-x:scroll;max-height:calc(100% - 50px);overflow-y:auto}nav{display:none;position:relative}.genesis-nav-menu .menu-item{position:relative;display:block;text-align:left}.genesis-nav-menu .sub-menu{display:none;opacity:1;position:static;box-shadow:none;width:100%;padding-left:10px;margin-left:20px;max-height:calc(100% - 50px);overflow-y:auto}.genesis-nav-menu .sub-menu a{border-left:0;position:relative}.genesis-nav-menu .sub-menu a{width:100%;padding:12px}}.menu-toggle{display:none;margin-bottom:-1px;text-align:center}.menu-toggle::before{content:"\f20e";display:inline-block;font:normal 21px 'Ionicons';margin:0 auto;padding:10px}@media only screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (-moz-min-device-pixel-ratio:1.5),only screen and (-o-min-device-pixel-ratio:3/2),only screen and (min-device-pixel-ratio:1.5){input,button,input[type="search"]{border-radius:0!important}}@media only screen and (max-width:1300px){.genesis-nav-menu a{padding:24px 22px}}@media only screen and (max-width:1139px){li a.icon-search{display:none}.nav-primary .widget-wrap{right:0}.genesis-nav-menu a{padding:24px 16px}}@media only screen and (max-width:1023px){.content,.sidebar-primary,.site-header .widget-area{width:100%}.header-image .site-title a{margin-top:0}}@media only screen and (max-width:1000px){.offscreen-content button,.offscreen-content-icon button{display:none}.title-area{text-align:center;padding:15px 0 0;display:inline-block!important;border:0;margin:0!important}.site-header{padding:10px 40px 12px}}@media only screen and (max-width:767px){.site-container{padding-top:30px}.genesis-nav-menu a{padding:20px 30px}.nav-primary .widget-wrap{margin-top:-20px;width:100%}.nav-primary{padding:12px 10px 12px 0}.genesis-nav-menu .sub-menu{border:0;width:100%}.genesis-nav-menu .sub-menu a{border:0!important;width:100%}.sidebar .enews-widget input#subbox,.sidebar .enews-widget input#subbox1{display:inline-block;width:100%;margin-left:0;margin-bottom:10px}.site-header{padding:15px 20px 20px}}@media only screen and (max-width:480px){.header-image .title-area{margin:0}.title-area{padding-top:16px}.header-image .site-title a{background-size:contain!important;width:100%;margin-top:0}.entry-title{font-size:22px}}.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;overflow-wrap:normal!important;word-wrap:normal!important;padding:0;position:absolute!important;width:1px}@-webkit-keyframes fadein{0%{opacity:0}to{opacity:1}}@keyframes fadein{0%{opacity:0}to{opacity:1}}:root{--woocommerce:#a46497;--wc-green:#7ad03a;--wc-red:#a00;--wc-orange:#ffba00;--wc-blue:#2ea2cc;--wc-primary:#a46497;--wc-primary-text:white;--wc-secondary:#ebe9eb;--wc-secondary-text:#515151;--wc-highlight:#77a464;--wc-highligh-text:white;--wc-content-bg:#fff;--wc-subtext:#767676}:root{--woocommerce:#a46497;--wc-green:#7ad03a;--wc-red:#a00;--wc-orange:#ffba00;--wc-blue:#2ea2cc;--wc-primary:#a46497;--wc-primary-text:white;--wc-secondary:#ebe9eb;--wc-secondary-text:#515151;--wc-highlight:#77a464;--wc-highligh-text:white;--wc-content-bg:#fff;--wc-subtext:#767676}.screen-reader-text{clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute!important;width:1px;word-wrap:normal!important}@font-face{font-display:swap;font-family:"Ionicons";src:url(https://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.1);src:url(https://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.1#iefix) format("embedded-opentype"),url(https://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.ttf?v=2.0.1) format("truetype"),url(https://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.woff?v=2.0.1) format("woff"),url(https://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.svg?v=2.0.1#Ionicons) format("svg");font-weight:normal;font-style:normal}.ion-ios-close-empty:before,.ion-navicon:before{display:inline-block;font-family:"Ionicons";speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;text-rendering:auto;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.ion-ios-close-empty:before{content:"\f404"}.ion-navicon:before{content:"\f20e"}@font-face{font-family:'Cardo';font-style:italic;font-weight:400;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/cardo-italic-latin-ext-400.woff2') format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Cardo';font-style:italic;font-weight:400;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/cardo-italic-latin-400.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Cardo';font-style:normal;font-weight:400;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/cardo-normal-latin-ext-400.woff2') format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Cardo';font-style:normal;font-weight:400;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/cardo-normal-latin-400.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Montserrat';font-style:normal;font-weight:300;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/montserrat-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Montserrat';font-style:normal;font-weight:300;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/montserrat-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/montserrat-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/montserrat-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/work-sans-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/work-sans-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Work Sans';font-style:normal;font-weight:700;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/work-sans-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Work Sans';font-style:normal;font-weight:700;font-display:swap;src:url('https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/work-sans-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}div.heateor_sss_sharing_ul a:link{text-decoration:none;background:transparent!important}.heateor_sss_vertical_sharing{-webkit-box-sizing:content-box!important;-moz-box-sizing:content-box!important}div.heateor_sss_sharing_ul{padding-left:0!important;margin:1px 0!important}div.heateor_sss_sharing_ul a:before{content:none!important}.heateor_sss_vertical_sharing{background:0 0;-webkit-box-shadow:0 1px 4px 1px rgba(0,0,0,.1);box-shadow:0 1px 4px 1px rgba(0,0,0,.1);position:fixed;overflow:visible;z-index:10000000;display:block;padding:10px;border-radius:4px;opacity:1;box-sizing:content-box!important}.heateor_sss_sharing_container a{padding:0!important;box-shadow:none!important;border:none!important}.heateorSssClear{clear:both}div.heateor_sss_sharing_container a:before{content:none}</style>
+	<meta name="description" content="Are you looking for the perfect cloud aesthetic wallpaper to add an extra pop of color to your Iphone background? Here are some you&#039;ll love!" />
+	<link rel="canonical" href="https://justjamila.com/cloud-aesthetic-wallpaper/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="40 Breathtaking Cloud Aesthetic Wallpaper For iPhones (Free Download!)" />
+	<meta property="og:description" content="Are you looking for the perfect cloud aesthetic wallpaper to add an extra pop of color to your Iphone background? Here are some you&#039;ll love!" />
+	<meta property="og:url" content="https://justjamila.com/cloud-aesthetic-wallpaper/" />
+	<meta property="og:site_name" content="Just Jamila" />
+	<meta property="article:published_time" content="2020-11-28T12:59:23+00:00" />
+	<meta property="article:modified_time" content="2021-07-22T22:52:17+00:00" />
+	<meta property="og:image" content="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper.jpg" />
+	<meta property="og:image:width" content="1007" />
+	<meta property="og:image:height" content="1281" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="author" content="Jamila" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Jamila" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="2 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://justjamila.com/cloud-aesthetic-wallpaper/#article","isPartOf":{"@id":"https://justjamila.com/cloud-aesthetic-wallpaper/"},"author":{"name":"Jamila","@id":"https://justjamila.com/#/schema/person/3d12e8ec7f778a3e6365f414d7bea7ac"},"headline":"40 Breathtaking Cloud Aesthetic Wallpaper For iPhones (Free Download!)","datePublished":"2020-11-28T12:59:23+00:00","dateModified":"2021-07-22T22:52:17+00:00","mainEntityOfPage":{"@id":"https://justjamila.com/cloud-aesthetic-wallpaper/"},"wordCount":448,"commentCount":0,"publisher":{"@id":"https://justjamila.com/#organization"},"image":{"@id":"https://justjamila.com/cloud-aesthetic-wallpaper/#primaryimage"},"thumbnailUrl":"https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper.jpg","articleSection":["College"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://justjamila.com/cloud-aesthetic-wallpaper/","url":"https://justjamila.com/cloud-aesthetic-wallpaper/","name":"40 Breathtaking Cloud Aesthetic Wallpaper For iPhones (Free Download!)","isPartOf":{"@id":"https://justjamila.com/#website"},"primaryImageOfPage":{"@id":"https://justjamila.com/cloud-aesthetic-wallpaper/#primaryimage"},"image":{"@id":"https://justjamila.com/cloud-aesthetic-wallpaper/#primaryimage"},"thumbnailUrl":"https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper.jpg","datePublished":"2020-11-28T12:59:23+00:00","dateModified":"2021-07-22T22:52:17+00:00","description":"Are you looking for the perfect cloud aesthetic wallpaper to add an extra pop of color to your Iphone background? Here are some you'll love!","breadcrumb":{"@id":"https://justjamila.com/cloud-aesthetic-wallpaper/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://justjamila.com/cloud-aesthetic-wallpaper/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://justjamila.com/cloud-aesthetic-wallpaper/#primaryimage","url":"https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper.jpg","contentUrl":"https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper.jpg","width":1007,"height":1281,"caption":"cloud aesthetic wallpaper"},{"@type":"BreadcrumbList","@id":"https://justjamila.com/cloud-aesthetic-wallpaper/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://justjamila.com/"},{"@type":"ListItem","position":2,"name":"40 Breathtaking Cloud Aesthetic Wallpaper For iPhones (Free Download!)"}]},{"@type":"WebSite","@id":"https://justjamila.com/#website","url":"https://justjamila.com/","name":"Just Jamila","description":"All Things Gen Z","publisher":{"@id":"https://justjamila.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://justjamila.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://justjamila.com/#organization","name":"Just Jamila","url":"https://justjamila.com/","sameAs":[],"logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://justjamila.com/#/schema/logo/image/","url":"https://justjamila.com/wp-content/uploads/2020/11/cropped-justjamila.png","contentUrl":"https://justjamila.com/wp-content/uploads/2020/11/cropped-justjamila.png","width":512,"height":512,"caption":"Just Jamila"},"image":{"@id":"https://justjamila.com/#/schema/logo/image/"}},{"@type":"Person","@id":"https://justjamila.com/#/schema/person/3d12e8ec7f778a3e6365f414d7bea7ac","name":"Jamila","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://justjamila.com/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/30ddaff1bd0f5e69bed67f96f24916b0?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/30ddaff1bd0f5e69bed67f96f24916b0?s=96&d=mm&r=g","caption":"Jamila"},"description":"Just a life-loving &amp; Cheesecake obsessed USC grad bringing you college hacks, dorm decor ideas, college dating advice, money-making tips, and more!","sameAs":["https://justjamila.com"],"url":"https://justjamila.com/author/justjamilaagmail-com/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//scripts.mediavine.com' />
+<link rel='dns-prefetch' href='//code.ionicframework.com' />
+
+
+<link rel="alternate" type="application/rss+xml" title="Just Jamila &raquo; Feed" href="https://justjamila.com/feed/" />
+<link id='omgf-preload-0' rel='preload' href='https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/cardo-italic-latin-ext-400.woff2' as='font' type='font/woff2' crossorigin />
+<link id='omgf-preload-1' rel='preload' href='https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/cardo-italic-latin-400.woff2' as='font' type='font/woff2' crossorigin />
+<link id='omgf-preload-2' rel='preload' href='https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/cardo-normal-latin-ext-400.woff2' as='font' type='font/woff2' crossorigin />
+<link id='omgf-preload-3' rel='preload' href='https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/cardo-normal-latin-400.woff2' as='font' type='font/woff2' crossorigin />
+<link id='omgf-preload-4' rel='preload' href='https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/montserrat-normal-latin-ext.woff2' as='font' type='font/woff2' crossorigin />
+<link id='omgf-preload-5' rel='preload' href='https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/montserrat-normal-latin.woff2' as='font' type='font/woff2' crossorigin />
+<link id='omgf-preload-6' rel='preload' href='https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/work-sans-normal-latin-ext.woff2' as='font' type='font/woff2' crossorigin />
+<link id='omgf-preload-7' rel='preload' href='https://justjamila.com/wp-content/uploads/omgf/vivienne-google-fonts/work-sans-normal-latin.woff2' as='font' type='font/woff2' crossorigin />
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v8.10.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script type="rocketlazyloadscript"
+				src="//www.googletagmanager.com/gtag/js?id=UA-183860158-1"  data-cfasync="false" data-wpfc-render="false" data-rocket-type="text/javascript" async></script>
+			<script type="rocketlazyloadscript" data-cfasync="false" data-wpfc-render="false" data-rocket-type="text/javascript">
+				var mi_version = '8.10.0';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+				
+								var disableStrs = [
+															'ga-disable-UA-183860158-1',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (mi_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+							
+														parameters.send_to = monsterinsights_frontend.ua;
+							__gtagDataLayer(type, name, parameters);
+													} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dZGIzZG': true,
+											});
+															__gtagTracker('config', 'UA-183860158-1', {"forceSSL":"true","link_attribution":"true"} );
+										window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+				<!-- / Google Analytics by MonsterInsights -->
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='preload'   href='https://justjamila.com/wp-content/plugins/genesis-simple-share/assets/css/share.min.css?ver=0.1.0' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/genesis-simple-share/assets/css/genericons.min.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/themes/vivienne.2.2-1/style.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<style id='vivienne-inline-css' type='text/css'>
+
+
+		.entry-content a:not(.button):not(.more-link),
+		.sharrre .share,
+		.sharrre:hover .share,
+		.social i {
+			color: #e2b5b5;
+		}
+
+		.woocommerce ul.products li.product a {
+			color: #e2b5b5 !important;
+		}
+
+		
+
+		.nav-primary .social i,
+		li a.icon-search {
+			color: #222222;
+		}
+
+		
+</style>
+<link rel='preload'   href='https://justjamila.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0.3' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<style id='ce4wp-subscribe-style-inline-css' type='text/css'>
+.wp-block-ce4wp-subscribe{max-width:840px;margin:0 auto}.wp-block-ce4wp-subscribe .title{margin-bottom:0}.wp-block-ce4wp-subscribe .subTitle{margin-top:0;font-size:0.8em}.wp-block-ce4wp-subscribe .disclaimer{margin-top:5px;font-size:0.8em}.wp-block-ce4wp-subscribe .disclaimer .disclaimer-label{margin-left:10px}.wp-block-ce4wp-subscribe .inputBlock{width:100%;margin-bottom:10px}.wp-block-ce4wp-subscribe .inputBlock input{width:100%}.wp-block-ce4wp-subscribe .inputBlock label{display:inline-block}.wp-block-ce4wp-subscribe .submit-button{margin-top:25px;display:block}.wp-block-ce4wp-subscribe .required-text{display:inline-block;margin:0;padding:0;margin-left:0.3em}.wp-block-ce4wp-subscribe .onSubmission{height:0;max-width:840px;margin:0 auto}.wp-block-ce4wp-subscribe .firstNameSummary .lastNameSummary{text-transform:capitalize}.wp-block-ce4wp-subscribe .ce4wp-inline-notification{display:flex;flex-direction:row;align-items:center;padding:13px 10px;width:100%;height:40px;border-style:solid;border-color:orange;border-width:1px;border-left-width:4px;border-radius:3px;background:rgba(255,133,15,0.1);flex:none;order:0;flex-grow:1;margin:0px 0px}.wp-block-ce4wp-subscribe .ce4wp-inline-warning-text{font-style:normal;font-weight:normal;font-size:16px;line-height:20px;display:flex;align-items:center;color:#571600;margin-left:9px}.wp-block-ce4wp-subscribe .ce4wp-inline-warning-icon{color:orange}.wp-block-ce4wp-subscribe .ce4wp-inline-warning-arrow{color:#571600;margin-left:auto}.wp-block-ce4wp-subscribe .ce4wp-banner-clickable{cursor:pointer}.ce4wp-link{cursor:pointer}
+
+.no-flex{display:block}.sub-header{margin-bottom:1em}
+
+
+</style>
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/official-mailerlite-sign-up-forms/assets/css/mailerlite_forms.css?ver=1661941032' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link rel='preload'   href='https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/css/wpmenucart-icons.min.css?ver=2.12.0' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<style id='wpmenucart-icons-inline-css' type='text/css'>
+@font-face{font-family:WPMenuCart;src:url(https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.eot);src:url(https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.eot?#iefix) format('embedded-opentype'),url(https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.woff2) format('woff2'),url(https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.woff) format('woff'),url(https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.ttf) format('truetype'),url(https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/fonts/WPMenuCart.svg#WPMenuCart) format('svg');font-weight:400;font-style:normal;font-display:swap}
+</style>
+<link rel='preload'   href='https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/css/wpmenucart-main.min.css?ver=2.12.0' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='only screen and (max-width: 768px)' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woo-checkout-for-digital-goods/public/css/woo-checkout-for-digital-goods-public.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/ionicons/2.0.1/css/ionicons.min.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/uploads/omgf/vivienne-google-fonts/vivienne-google-fonts.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/themes/vivienne.2.2-1/woo/vivienne-woocommerce.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/sassy-social-share/public/css/sassy-social-share-public.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/forget-about-shortcode-buttons/public/css/button-styles.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://justjamila.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<link data-minify="1" rel='preload'   href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/genesis-responsive-slider/assets/style.css?ver=1659294363' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  type='text/css' media='all' />
+<script type='text/javascript' src='https://justjamila.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js' defer></script>
+<script type='text/javascript' src='https://justjamila.com/wp-content/plugins/genesis-simple-share/assets/js/sharrre/jquery.sharrre.min.js?ver=0.1.0' id='genesis-simple-share-plugin-js-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/genesis-simple-share/assets/js/waypoints.min.js?ver=0.1.0' id='genesis-simple-share-waypoint-js-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=8.10.0' id='monsterinsights-frontend-script-js' defer></script>
+<script data-cfasync="false" data-wpfc-render="false" type="text/javascript" id='monsterinsights-frontend-script-js-extra'>/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/justjamila.com","hash_tracking":"false","ua":"UA-183860158-1","v4_id":""};/* ]]> */
+</script>
+<script type='text/javascript' async="async" data-noptimize="1" data-cfasync="false" id='mv-script-wrapper-js' data-type="lazy" data-src="https://scripts.mediavine.com/tags/just-jamila.js?ver=6.0.3"></script>
+<script type='text/javascript' id='wpmenucart-ajax-assist-js-extra'>
+/* <![CDATA[ */
+var wpmenucart_ajax_assist = {"shop_plugin":"woocommerce","always_display":""};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/js/wpmenucart-ajax-assist.min.js?ver=2.12.0' id='wpmenucart-ajax-assist-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/woo-checkout-for-digital-goods/public/js/woo-checkout-for-digital-goods-public.js?ver=3.6.4' id='woo-checkout-for-digital-goods-js' defer></script>
+<script type='text/javascript' src='https://justjamila.com/wp-content/themes/vivienne.2.2-1/js/global.js?ver=1.0.0' id='vivienne-global-js' defer></script>
+<link rel="https://api.w.org/" href="https://justjamila.com/wp-json/" /><link rel="alternate" type="application/json" href="https://justjamila.com/wp-json/wp/v2/posts/1461" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://justjamila.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://justjamila.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 6.0.3" />
+<meta name="generator" content="WooCommerce 6.7.0" />
+<link rel='shortlink' href='https://justjamila.com/?p=1461' />
+<link rel="alternate" type="application/json+oembed" href="https://justjamila.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjustjamila.com%2Fcloud-aesthetic-wallpaper%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://justjamila.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjustjamila.com%2Fcloud-aesthetic-wallpaper%2F&#038;format=xml" />
+<!-- MailerLite Universal -->
+<script type="rocketlazyloadscript">
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '137827');
+</script>
+<!-- End MailerLite Universal -->        <!-- MailerLite Universal -->
+        <script type="rocketlazyloadscript">
+            (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+                .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+                n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+            (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+            ml('account', '137827');
+            ml('enablePopups', true);
+        </script>
+        <!-- End MailerLite Universal -->
+        <link rel="pingback" href="https://justjamila.com/xmlrpc.php" />
+<!-- TikTok Pixel Code Start -->
+<script type="rocketlazyloadscript">
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++
+)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=i+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+  ttq.load('C399H1RTAIRUL8B9I22G');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<script type="rocketlazyloadscript" id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/2535662a86e924eefe6eab825/dfc0125934e661f90448d398c.js");</script>
+
+<meta name="facebook-domain-verification" content="d5y0ngqk4l90sziupec1qsy6iturfe" /><style type="text/css">.site-title a { background: url(https://justjamila.com/wp-content/uploads/2021/09/cropped-cropped-Just-Jamila-5.png) no-repeat !important; }</style>
+	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	
+<!-- Meta Pixel Code -->
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+</script>
+<!-- End Meta Pixel Code -->
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+  fbq('init', '725982484946292', {}, {
+    "agent": "wordpress-6.0.3-3.0.7"
+});
+  </script><script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+  fbq('track', 'PageView', []);
+  </script>
+<!-- Meta Pixel Code -->
+<noscript>
+<img height="1" width="1" style="display:none" alt="fbpx"
+src="https://www.facebook.com/tr?id=725982484946292&ev=PageView&noscript=1" />
+</noscript>
+<!-- End Meta Pixel Code -->
+<link rel="icon" href="https://justjamila.com/wp-content/uploads/2020/11/justjamila-1-100x100.png" sizes="32x32" />
+<link rel="icon" href="https://justjamila.com/wp-content/uploads/2020/11/justjamila-1-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://justjamila.com/wp-content/uploads/2020/11/justjamila-1-300x300.png" />
+<meta name="msapplication-TileImage" content="https://justjamila.com/wp-content/uploads/2020/11/justjamila-1-300x300.png" />
+		<style type="text/css" id="wp-custom-css">
+			body, .entry-content p { font-size: 15px; }
+.wp-block-jetpack-pinterest{
+	text-align: center
+}
+
+.woocommerce-checkout .woocommerce-additional-fields .ce-field {
+  display: none !important;
+}
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+ background-color: #028a0f !important;
+	
+}
+
+.page-id-2604 nav#no-header-top-menu {
+    display: none;
+}
+
+body, .entry-content p { font-size: 20px; line-height: 1.6 }
+
+/*Mediavine Sidebar Fix*/
+@media only screen and (min-width: 1200px) {
+.content-sidebar .content {
+max-width: calc(100% - 350px)!important;
+} 
+.content-sidebar .sidebar {
+min-width: 300px!important;
+}
+}
+
+@media only screen and (max-width: 359px){
+.content-sidebar-wrap  {
+padding-left: 10px!important;
+padding-right: 10px!important;
+    max-width:100%!important;
+}
+}
+/*end Mediavine Sidebar Fix*/
+
+@media only screen and (max-width: 425px) {
+
+li .mv-ad-box {
+
+min-width: 300px;
+
+margin-left: -20px;
+
+}
+
+}
+
+@media only screen and (max-width: 399px) {
+
+li .mv-ad-box {
+
+margin-left: -40px;
+
+}
+
+}
+
+/* Enter Your Custom CSS Here */
+page-id-472 nav#nav-menus {
+display: none;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script></head>
+<body class="post-template-default single single-post postid-1461 single-format-standard wp-custom-logo theme-genesis woocommerce-no-js custom-header header-image header-full-width content-sidebar genesis-breadcrumbs-hidden genesis-footer-widgets-hidden elementor-default elementor-kit-2337"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB" ><fefuncr type="table" tablevalues="0 0.49803921568627" /><fefuncg type="table" tablevalues="0 0.49803921568627" /><fefuncb type="table" tablevalues="0 0.49803921568627" /><fefunca type="table" tablevalues="1 1" /></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB" ><fefuncr type="table" tablevalues="0 1" /><fefuncg type="table" tablevalues="0 1" /><fefuncb type="table" tablevalues="0 1" /><fefunca type="table" tablevalues="1 1" /></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB" ><fefuncr type="table" tablevalues="0.54901960784314 0.98823529411765" /><fefuncg type="table" tablevalues="0 1" /><fefuncb type="table" tablevalues="0.71764705882353 0.25490196078431" /><fefunca type="table" tablevalues="1 1" /></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB" ><fefuncr type="table" tablevalues="0 1" /><fefuncg type="table" tablevalues="0 0.27843137254902" /><fefuncb type="table" tablevalues="0.5921568627451 0.27843137254902" /><fefunca type="table" tablevalues="1 1" /></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB" ><fefuncr type="table" tablevalues="0 0" /><fefuncg type="table" tablevalues="0 0.64705882352941" /><fefuncb type="table" tablevalues="0 1" /><fefunca type="table" tablevalues="1 1" /></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB" ><fefuncr type="table" tablevalues="0.78039215686275 1" /><fefuncg type="table" tablevalues="0 0.94901960784314" /><fefuncb type="table" tablevalues="0.35294117647059 0.47058823529412" /><fefunca type="table" tablevalues="1 1" /></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB" ><fefuncr type="table" tablevalues="0.65098039215686 0.40392156862745" /><fefuncg type="table" tablevalues="0 1" /><fefuncb type="table" tablevalues="0.44705882352941 0.4" /><fefunca type="table" tablevalues="1 1" /></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><fecomponenttransfer color-interpolation-filters="sRGB" ><fefuncr type="table" tablevalues="0.098039215686275 1" /><fefuncg type="table" tablevalues="0 0.66274509803922" /><fefuncb type="table" tablevalues="0.84705882352941 0.41960784313725" /><fefunca type="table" tablevalues="1 1" /></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in" /></filter></defs></svg>    <script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+
+      function updateConfig() {
+        var eventsFilter = "Microdata,SubscribedButtonClick";
+        var eventsFilterList = eventsFilter.split(',');
+        fbq.instance.pluginConfig.set("725982484946292", 'openbridge',
+          {'endpoints':
+            [{
+              'targetDomain': window.location.href,
+              'endpoint': window.location.href + '.open-bridge'
+            }],
+            'eventsFilter': {
+              'eventNames':eventsFilterList,
+              'filteringMode':'blocklist'
+            }
+          }
+        );
+        fbq.instance.configLoaded("725982484946292");
+      }
+
+      window.onload = function() {
+        var s = document.createElement('script');
+        s.setAttribute('src', "https://justjamila.com/wp-content/plugins/official-facebook-pixel/core/../js/openbridge_plugin.js");
+        s.setAttribute('onload', 'updateConfig()');
+        document.body.appendChild( s );
+      }
+    </script><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="https://justjamila.com/">Just Jamila</a></p><p class="site-description">All Things Gen Z</p></div><nav class="nav-primary" aria-label="Main"><div class="wrap"><ul id="menu-top-bar" class="menu genesis-nav-menu menu-primary"><li id="menu-item-1247" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-1247"><a href="https://justjamila.com/category/college/"><span >College</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1251" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1251"><a href="https://justjamila.com/category/college/college-tips/"><span >College Tips</span></a></li>
+	<li id="menu-item-1248" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1248"><a href="https://justjamila.com/category/dorm/"><span >Dorm</span></a></li>
+	<li id="menu-item-1254" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1254"><a href="https://justjamila.com/category/college/birthday-ideas/"><span >Birthday Ideas</span></a></li>
+	<li id="menu-item-1256" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1256"><a href="https://justjamila.com/category/college/gift-guides/"><span >Gift Guides</span></a></li>
+</ul>
+</li>
+<li id="menu-item-1250" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1250"><a href="https://justjamila.com/category/dating/"><span >Dating</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-5211" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5211"><a href="https://justjamila.com/category/dating/relationship-advice/"><span >Relationship advice</span></a></li>
+	<li id="menu-item-5210" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5210"><a href="https://justjamila.com/category/dating/dating-tips/"><span >Dating Tips</span></a></li>
+	<li id="menu-item-5208" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5208"><a href="https://justjamila.com/category/dating/breakups/"><span >Breakups</span></a></li>
+	<li id="menu-item-5209" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5209"><a href="https://justjamila.com/category/dating/date-ideas/"><span >Date ideas</span></a></li>
+</ul>
+</li>
+<li id="menu-item-3711" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3711"><a href="https://justjamila.com/category/fashion/"><span >Fashion</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-4808" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4808"><a href="https://justjamila.com/category/fashion/outfit-ideas/"><span >Outfit Ideas</span></a></li>
+	<li id="menu-item-3712" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3712"><a href="https://justjamila.com/category/fashion/nail-designs/"><span >Nail Designs</span></a></li>
+	<li id="menu-item-4423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4423"><a href="https://justjamila.com/category/fashion/designer-dupes/"><span >Designer Dupes</span></a></li>
+</ul>
+</li>
+<li id="menu-item-5454" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-5454"><a href="https://justjamila.com/category/money/"><span >Money</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-5456" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5456"><a href="https://justjamila.com/category/money/save-money/"><span >Save Money</span></a></li>
+	<li id="menu-item-5455" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5455"><a href="https://justjamila.com/category/money/make-money-money/"><span >Make Money</span></a></li>
+</ul>
+</li>
+<li id="menu-item-1249" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1249"><a href="https://justjamila.com/category/manifestation/"><span >Manifestation</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-3099" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3099"><a href="https://justjamila.com/category/manifestation/manifesting-tips/"><span >Manifesting Tips</span></a></li>
+	<li id="menu-item-4018" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4018"><a href="https://www.etsy.com/listing/1113290624/manifestation-bundle-mindfulness-journal?ref=shop_home_active_1"><span >Ultimate Manifestation Bundle</span></a></li>
+</ul>
+</li>
+<li id="menu-item-2952" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2952"><a href="https://www.etsy.com/shop/JustJamilaShop"><span >SHOP</span></a></li>
+<li id="menu-item-4112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4112"><a href="https://drive.google.com/file/d/1RCC6TmtjBXas456XeLYQ0AN2QElWzFnU/view?usp=sharing"><span >Work With Me</span></a></li>
+<aside class="widget-area"><section id="custom_html-9" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><div align="center">
+<!-- 
+<a href="YOUR FACEBOOK LINK" title="Facebook" target="_blank" rel="noopener">
+<span class="social"><i class="icon-facebook"></i></span></a> -->
+
+<!-- <a href="YOUR TWITTER LINK" title="Twitter" target="_blank" rel="noopener">
+<span class="social"><i class="icon-twitter"></i></span></a> -->
+
+<a href="https://www.pinterest.com/justjamilaaa" title="Pinterest" target="_blank" rel="noopener">
+<span class="social"><i class="icon-pinterest"></i></span></a>
+
+<!-- <a href="YOUR INSTAGRAM LINK" title="Instagram" target="_blank" rel="noopener">
+<span class="social"><i class="icon-instagram"></i></span></a> -->
+	
+<a href="mailto:justjamila.contact@gmail.com" title="Email" target="_blank" rel="noopener">
+<span class="social"><i class="icon-email"></i></span></a>
+
+</div></div></div></section>
+</aside><li class="search"><a id="main-nav-search-link" class="icon-search"></a><div class="search-div"><form class="search-form" method="get" action="https://justjamila.com/" role="search"><input class="search-form-input" type="search" name="s" id="searchform-1" placeholder="Search this website"><input class="search-form-submit" type="submit" value="GO"><meta content="https://justjamila.com/?s={s}"></form></div></li><li class="wpmenucartli wpmenucart-display-standard menu-item" id="wpmenucartli"><a class="wpmenucart-contents empty-wpmenucart" style="display:none">&nbsp;</a></li></ul></div></nav><div class="offscreen-content-icon"><button class="offscreen-content-toggle"><i class="icon ion-navicon"></i> <span class="screen-reader-text">Show Offscreen Content</span></button></div><div class="offscreen-content"><div class="offscreen-container"><div class="widget-area"><button class="offscreen-content-toggle"><i class="icon ion-ios-close-empty"></i> <span class="screen-reader-text">Hide Offscreen Content</span></button><div class="wrap"><section id="nav_menu-2" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">Explore</h4>
+<div class="menu-instagram-menu-container"><ul id="menu-instagram-menu" class="menu"><li id="menu-item-1220" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1220"><a href="https://justjamila.com/about/">About Me</a></li>
+<li id="menu-item-1221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1221"><a href="https://justjamila.com/blog/">Read the Blog</a></li>
+</ul></div></div></section>
+<section id="custom_html-4" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><h4 class="widget-title widgettitle">Connect</h4>
+<div class="textwidget custom-html-widget"><div align="center">
+
+<!-- <a href="YOUR FACEBOOK LINK" title="Facebook" target="_blank" rel="noopener">
+<span class="social"><i class="icon-facebook"></i></span></a> -->
+
+<!-- <a href="YOUR TWITTER LINK" title="Twitter" target="_blank" rel="noopener">
+<span class="social"><i class="icon-twitter"></i></span></a> -->
+
+<a href="https://www.pinterest.com/justjamilaaa" title="Pinterest" target="_blank" rel="noopener">
+<span class="social"><i class="icon-pinterest"></i></span></a>
+
+<a href="mailto:justjamilaa@gmail.com" title="Email" target="_blank" rel="noopener">
+<span class="social"><i class="icon-email"></i></span></a>
+
+</div></div></div></section>
+</div></div></div></div></div></header><div class="site-container"><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><article class="post-1461 post type-post status-publish format-standard has-post-thumbnail category-college mv-content-wrapper entry" aria-label="40 Breathtaking Cloud Aesthetic Wallpaper For iPhones (Free Download!)"><header class="entry-header"><p class="entry-meta"><span class="entry-categories"><a href="https://justjamila.com/category/college/" rel="category tag">College</a></span> &middot; <time class="entry-time">November 28, 2020</time></p><h1 class="entry-title">40 Breathtaking Cloud Aesthetic Wallpaper For iPhones (Free Download!)</h1>
+</header><div class="entry-content"><div class='code-block code-block-1' style='margin-bottom:20px; font-size:11px; font-color:#999999'>
+<em>*This post may contain affiliate links, which means I'll receive a commission if you purchase through my link, at no extra cost to you. Please read full disclosure <a href="https://justjamila.com/disclosure/" target="blank">here</a>.</em></div>
+
+<p>This post includes<strong> 40 absolutely stunning </strong>cloud aesthetic wallpaper ideas for your iPhone background!</p>
+
+
+
+<p>Are you looking for beautiful background images that can add a pop of color to your iPhone home screen? I got you covered! Below, I&#8217;ve gathered 40 breathtaking high-quality cloud backgrounds for you to download! Feel free to save as many as you like. They&#8217;re all super gorgeous so it&#8217;s pretty difficult to decide on just one.</p>
+
+
+
+<p><strong>To save the photos to your phone background:</strong></p>
+
+
+
+<p><strong>Desktop</strong>: Right-click to save to your downloads,  email them to yourself, then proceed to save them to your phone. </p>
+
+
+
+<p><a href="https://www.iphonelife.com/blog/31961/tip-day-how-save-photos-received-messages-or-emails" target="_blank" rel="noreferrer noopener"><strong>On mobile</strong>&nbsp;<strong>devices</strong></a>: Long hold on the picture, then click &#8220;save image&#8221;. Or simply screenshot it.</p>
+
+
+
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<h2>Best Cloud Aesthetic Wallpaper For iPhone:</h2>
+
+
+
+<hr class="wp-block-separator is-style-wide"/>
+
+
+
+<h2>1. Heaven On Earth</h2>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1-805x1024.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1464" width="606" height="771" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1-805x1024.jpg 805w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1-600x763.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1-236x300.jpg 236w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1-768x977.jpg 768w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1-750x954.jpg 750w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1.jpg 1007w" sizes="(max-width: 606px) 100vw, 606px" /><figcaption>Heaven on Earth</figcaption></figure>
+
+
+
+<h2>2. Purple Skies</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-2.jpg" alt="wallpaper aesthetic backgrounds" class="wp-image-1465" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-2.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-2-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-2-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Purple skies</figcaption></figure>
+
+
+
+<h2>3. Starry Clouds</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-3.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1466" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-3.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-3-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-3-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Starry Clouds</figcaption></figure>
+
+
+
+<h2>4. Pastel Cloud Formation</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-4.jpg" alt="wallpaper aesthetic backgrounds" class="wp-image-1467" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-4.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-4-600x900.jpg 600w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Pastel Cloud Formation</figcaption></figure>
+
+
+
+<h2>5. Clear &amp; Free</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="853" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-5.jpg" alt="cloud aesthetic backgrounds " class="wp-image-1468" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-5.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-5-600x800.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-5-225x300.jpg 225w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Clear &amp; Free</figcaption></figure>
+
+
+
+<h2>6. A Flight To Nowhere</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="800" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-6.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1469" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-6.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-6-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-6-240x300.jpg 240w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>A flight to nowhere</figcaption></figure>
+
+
+
+<h2>7. On Cloud 9</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="800" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-7.jpg" alt="" class="wp-image-1470" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-7.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-7-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-7-240x300.jpg 240w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>On Cloud 9</figcaption></figure>
+
+
+
+<h2>8. Pink Palm Tree Vibe</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-8.jpg" alt="wallpaper aesthetic backgrounds,  clouds" class="wp-image-1471" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-8.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-8-600x900.jpg 600w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Pink palm tree vibe</figcaption></figure>
+
+
+
+<h2>9. Cotton Candy Aesthetics</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-9.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1472" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-9.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-9-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-9-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Cotton Candy Aesthetics</figcaption></figure>
+
+
+
+<h2>10. Hawaii Living</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="800" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-10.jpg" alt="cloud wallpaper aesthetic backgrounds" class="wp-image-1473" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-10.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-10-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-10-240x300.jpg 240w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Hawaii Living</figcaption></figure>
+
+
+
+<h2>11. Blue+Pink </h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="800" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-11.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1474" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-11.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-11-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-11-240x300.jpg 240w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Blue + Pink</figcaption></figure>
+
+
+
+<h2>12. Glorious Days</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-12.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1475" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-12.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-12-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-12-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Glorious Days </figcaption></figure>
+
+
+
+<h2>13. Back To The Future</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="959" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-13.jpg" alt="cloud wallpaper backgrounds for iphones" class="wp-image-1476" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-13.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-13-600x899.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-13-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Back to the future</figcaption></figure>
+
+
+
+<h2>14. Moody Skies</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="800" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-14.jpg" alt="grey clouds wallpaper " class="wp-image-1477" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-14.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-14-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-14-240x300.jpg 240w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Moody Skies </figcaption></figure>
+
+
+
+<h2>15. Beautiful Cloud Aesthetic Wallpaper For iPhones: Solo</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="853" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-15.jpg" alt="" class="wp-image-1478" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-15.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-15-600x800.jpg 600w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Solo</figcaption></figure>
+
+
+
+<h2>16. Out Of This World</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-16.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1479" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-16.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-16-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-16-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Out Of This World</figcaption></figure>
+
+
+
+<h2>17. Herd Of Clouds</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="959" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-17.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1480" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-17.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-17-600x899.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-17-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Herd of clouds </figcaption></figure>
+
+
+
+<h2>18. Cloud Aesthetic: Light</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="853" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-18.jpg" alt="cloud wallpaper backgrounds" class="wp-image-1481" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-18.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-18-600x800.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-18-225x300.jpg 225w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Cloud Aesthetic: Light</figcaption></figure>
+
+
+
+<h2>19. Dark Desires</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="854" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-19.jpg" alt="cloud wallpaper aesthetic backgrounds for iphones" class="wp-image-1482" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-19.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-19-600x801.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-19-225x300.jpg 225w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Dark desires</figcaption></figure>
+
+
+
+<h2>20. Free Fall</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-20.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1483" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-20.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-20-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-20-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Free fall</figcaption></figure>
+
+
+
+<h2>21. Free HD iPhone Wallpaper Backgrounds: Serenity</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="853" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-21.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1484" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-21.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-21-600x800.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-21-225x300.jpg 225w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Serenity</figcaption></figure>
+
+
+
+<h2>22. Free Flight</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="800" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-22.jpg" alt="wallpaper aesthetic backgrounds with clouds" class="wp-image-1485" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-22.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-22-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-22-240x300.jpg 240w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Free flight</figcaption></figure>
+
+
+
+<h2>23. Passionate Dreamer</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="800" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-23.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1486" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-23.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-23-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-23-240x300.jpg 240w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Passionate Dreamer</figcaption></figure>
+
+
+
+<h2>24. Ice Cream Delight</h2>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img loading="lazy" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-24.jpg" alt="cloud wallpaper aesthetic backgrounds" class="wp-image-1487" width="580" height="725" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-24.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-24-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-24-240x300.jpg 240w" sizes="(max-width: 580px) 100vw, 580px" /><figcaption>Ice cream delight</figcaption></figure>
+
+
+
+<h2>25. Let&#8217;s Dance </h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="959" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-25.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds for iphones" class="wp-image-1488" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-25.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-25-600x899.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-25-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Let&#8217;s Dance</figcaption></figure>
+
+
+
+<h2>26. Interstellar </h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-26.jpg" alt="aesthetic backgrounds cloud " class="wp-image-1489" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-26.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-26-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-26-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Interstellar</figcaption></figure>
+
+
+
+<h2>27. Quiet After The Storm</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="800" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-27.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1490" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-27.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-27-600x750.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-27-240x300.jpg 240w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Quiet after the storm</figcaption></figure>
+
+
+
+<h2>28. A Ray Of Light</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-28.jpg" alt="cloud wallpaper backgrounds" class="wp-image-1491" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-28.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-28-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-28-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>A Ray Of Light</figcaption></figure>
+
+
+
+<h2>29. Sky Is The Limit</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="853" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-29.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1492" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-29.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-29-600x800.jpg 600w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Sky is the limit</figcaption></figure>
+
+
+
+<h2>30. New Horizons</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="853" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-30.jpg" alt="aesthetic wallpaper cloud backgrounds" class="wp-image-1493" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-30.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-30-600x800.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-30-225x300.jpg 225w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>New Horizons</figcaption></figure>
+
+
+
+<h2>31. Lavender Dreams</h2>
+
+
+
+<figure class="wp-block-image size-large"><img width="576" height="1024" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-576x1024.png" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1494"/><figcaption>Lavender Dreams</figcaption></figure>
+
+
+
+<h2>32. Aesthetic Wallpaper Background For iPhone: Blue </h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-31.jpg" alt="cloud wallpaper aesthetic backgrounds" class="wp-image-1495" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-31.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-31-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-31-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Aesthetic Wallpaper Background For iPhone: Blue</figcaption></figure>
+
+
+
+<h2>33. Silver Linings</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-32.jpg" alt="cloud wallpaper aesthetic wallpapers" class="wp-image-1496" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-32.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-32-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-32-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Silver Linings</figcaption></figure>
+
+
+
+<h2>34. Bucket Of Happiness</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-33.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1497" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-33.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-33-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-33-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Bucket of Happiness</figcaption></figure>
+
+
+
+<h2>35. Cloud Wallpaper Background For iPhone: Rainbow</h2>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="640" height="807" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-34.jpg" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1498" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-34.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-34-600x757.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-34-238x300.jpg 238w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Rainbow</figcaption></figure>
+
+
+
+<h2>36. Vintage View </h2>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-image"><figure class="alignleft size-large"><img loading="lazy" width="640" height="960" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-35.jpg" alt="cloud aesthetic backgrounds" class="wp-image-1499" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-35.jpg 640w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-35-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-35-200x300.jpg 200w" sizes="(max-width: 640px) 100vw, 640px" /><figcaption>Vintage View</figcaption></figure></div>
+
+
+
+<p></p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<h2>37. Aesthetic Wallpaper Background For iPhone: Pink Lady</h2>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img loading="lazy" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1.png" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1500" width="587" height="739" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1.png 341w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-1-238x300.png 238w" sizes="(max-width: 587px) 100vw, 587px" /><figcaption>Pink Lady</figcaption></figure>
+
+
+
+<h2>38. Aesthetic Backgrounds For iPhone: Cloudy Adventure</h2>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img loading="lazy" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-2.png" alt="cloud aesthetic wallpaper, wallpaper aesthetic backgrounds" class="wp-image-1501" width="593" height="852" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-2.png 460w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-2-209x300.png 209w" sizes="(max-width: 593px) 100vw, 593px" /><figcaption>Cloudy Adventure</figcaption></figure>
+
+
+
+<h2>39. Pink Clouds Wonderland</h2>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img loading="lazy" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-3.png" alt="cloud aesthetics backgrounds" class="wp-image-1502" width="579" height="877" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-3.png 317w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-3-198x300.png 198w" sizes="(max-width: 579px) 100vw, 579px" /><figcaption>Pink Clouds Wonderland</figcaption></figure>
+
+
+
+<h2>40. Aesthetic Cloud Backgrounds For iPhone: Moonlight </h2>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img loading="lazy" src="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36-683x1024.jpg" alt="cloud backgrounds wallpaper" class="wp-image-1503" width="538" height="806" srcset="https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36-683x1024.jpg 683w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36-600x900.jpg 600w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36-200x300.jpg 200w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36-768x1151.jpg 768w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36-1025x1536.jpg 1025w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36-750x1124.jpg 750w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36-700x1050.jpg 700w, https://justjamila.com/wp-content/uploads/2020/11/cloud-aesthetic-wallpaper-36.jpg 1242w" sizes="(max-width: 538px) 100vw, 538px" /><figcaption>Moonlight</figcaption></figure>
+
+
+
+<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<h2>Enjoy Your New Cloud Wallpaper!</h2>
+
+
+
+<p>Were you able to save some of these stunning cloud wallpapers on your phone? Let me know in the comments! </p>
+
+
+
+<p>I personally love a good aesthetic background for my phone. Since I check my so many times throughout the day, I prefer to have a calming and soothing background that can make me feel relaxed and inspired. </p>
+
+
+
+<p>And hopefully, this post was able to help you find some aesthetic backgrounds that you can save to your phone, and use in the future!</p>
+<div class='heateorSssClear'></div><div  class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' data-heateor-sss-href='https://justjamila.com/cloud-aesthetic-wallpaper/'><div class='heateor_sss_sharing_title' style="font-weight:bold" >Spread the love</div><div class="heateor_sss_sharing_ul"><a class="heateor_sss_button_pinterest" onclick="javascript:void( (function() {var e=document.createElement('script' );e.setAttribute('type','text/javascript' );e.setAttribute('charset','UTF-8' );e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());" title="Pinterest" rel="nofollow noopener" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_pinterest" style="background-color:#cc2329;width:23px;height:23px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="-2 -2 35 35"><path fill="#fff" d="M16.539 4.5c-6.277 0-9.442 4.5-9.442 8.253 0 2.272.86 4.293 2.705 5.046.303.125.574.005.662-.33.061-.231.205-.816.27-1.06.088-.331.053-.447-.191-.736-.532-.627-.873-1.439-.873-2.591 0-3.338 2.498-6.327 6.505-6.327 3.548 0 5.497 2.168 5.497 5.062 0 3.81-1.686 7.025-4.188 7.025-1.382 0-2.416-1.142-2.085-2.545.397-1.674 1.166-3.48 1.166-4.689 0-1.081-.581-1.983-1.782-1.983-1.413 0-2.548 1.462-2.548 3.419 0 1.247.421 2.091.421 2.091l-1.699 7.199c-.505 2.137-.076 4.755-.039 5.019.021.158.223.196.314.077.13-.17 1.813-2.247 2.384-4.324.162-.587.929-3.631.929-3.631.46.876 1.801 1.646 3.227 1.646 4.247 0 7.128-3.871 7.128-9.053.003-3.918-3.317-7.568-8.361-7.568z"/></svg></span></a><a class="heateor_sss_facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjustjamila.com%2Fcloud-aesthetic-wallpaper%2F%3Futm_source%3Drss%26utm_medium%3Drss%26utm_campaign%3Dcloud-aesthetic-wallpaper" title="Facebook" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#3c589a;width:23px;height:23px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="-5 -5 42 42"><path d="M17.78 27.5V17.008h3.522l.527-4.09h-4.05v-2.61c0-1.182.33-1.99 2.023-1.99h2.166V4.66c-.375-.05-1.66-.16-3.155-.16-3.123 0-5.26 1.905-5.26 5.405v3.016h-3.53v4.09h3.53V27.5h4.223z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_twitter" href="http://twitter.com/intent/tweet?text=40%20Breathtaking%20Cloud%20Aesthetic%20Wallpaper%20For%20iPhones%20%28Free%20Download%21%29&url=https%3A%2F%2Fjustjamila.com%2Fcloud-aesthetic-wallpaper%2F%3Futm_source%3Drss%26utm_medium%3Drss%26utm_campaign%3Dcloud-aesthetic-wallpaper" title="Twitter" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_twitter" style="background-color:#55acee;width:23px;height:23px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="-4 -4 39 39"><path d="M28 8.557a9.913 9.913 0 0 1-2.828.775 4.93 4.93 0 0 0 2.166-2.725 9.738 9.738 0 0 1-3.13 1.194 4.92 4.92 0 0 0-3.593-1.55 4.924 4.924 0 0 0-4.794 6.049c-4.09-.21-7.72-2.17-10.15-5.15a4.942 4.942 0 0 0-.665 2.477c0 1.71.87 3.214 2.19 4.1a4.968 4.968 0 0 1-2.23-.616v.06c0 2.39 1.7 4.38 3.952 4.83-.414.115-.85.174-1.297.174-.318 0-.626-.03-.928-.086a4.935 4.935 0 0 0 4.6 3.42 9.893 9.893 0 0 1-6.114 2.107c-.398 0-.79-.023-1.175-.068a13.953 13.953 0 0 0 7.55 2.213c9.056 0 14.01-7.507 14.01-14.013 0-.213-.005-.426-.015-.637.96-.695 1.795-1.56 2.455-2.55z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_instagram" href="https://www.instagram.com/" title="Instagram" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#53beee;width:23px;height:23px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" version="1.1" viewbox="-10 -10 148 148" width="100%" height="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><path d="M86,112H42c-14.336,0-26-11.663-26-26V42c0-14.337,11.664-26,26-26h44c14.337,0,26,11.663,26,26v44 C112,100.337,100.337,112,86,112z M42,24c-9.925,0-18,8.074-18,18v44c0,9.925,8.075,18,18,18h44c9.926,0,18-8.075,18-18V42 c0-9.926-8.074-18-18-18H42z" fill="#fff"></path></g><g><path d="M64,88c-13.234,0-24-10.767-24-24c0-13.234,10.766-24,24-24s24,10.766,24,24C88,77.233,77.234,88,64,88z M64,48c-8.822,0-16,7.178-16,16s7.178,16,16,16c8.822,0,16-7.178,16-16S72.822,48,64,48z" fill="#fff"></path></g><g><circle cx="89.5" cy="38.5" fill="#fff" r="5.5"></circle></g></g></svg></span></a><a class="heateor_sss_more" title="More" rel="nofollow noopener" style="font-size: 32px!important;border:0;box-shadow:none;display:inline-block!important;font-size:16px;padding:0 4px;vertical-align: middle;display:inline;" href="https://justjamila.com/cloud-aesthetic-wallpaper/?utm_source=rss&amp;#038;utm_medium=rss&amp;#038;utm_campaign=cloud-aesthetic-wallpaper" onclick="event.preventDefault()"><span class="heateor_sss_svg" style="background-color:#ee8e2d;width:23px;height:23px;border-radius:999px;display:inline-block!important;opacity:1;float:left;font-size:32px!important;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;display:inline;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box;" onclick="heateorSssMoreSharingPopup(this, 'https://justjamila.com/cloud-aesthetic-wallpaper/?utm_source=rss&amp;#038;utm_medium=rss&amp;#038;utm_campaign=cloud-aesthetic-wallpaper', '40%20Breathtaking%20Cloud%20Aesthetic%20Wallpaper%20For%20iPhones%20%28Free%20Download%21%29', '' )"><svg xmlns="http://www.w3.org/2000/svg" style="display:block;border-radius:999px;" width="100%" height="100%" viewbox="-4 -4 38 38"><circle cx="10" cy="15" r="3" fill="#fff"></circle><circle cx="20" cy="10" r="3" fill="#fff"></circle><circle cx="20" cy="20" r="3" fill="#fff"></circle><path d="M 10 15 L 20 10 m 0 10 L 10 15" class="heateor_sss_svg_stroke heateor_sss_no_fill" stroke-width="2" stroke="#fff"></path></svg></span></a></div><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><div class='heateor_sss_sharing_container heateor_sss_vertical_sharing' style='width:28px;left: 0px;top: 300px;-webkit-box-shadow:none;box-shadow:none;' data-heateor-sss-href='https://justjamila.com/cloud-aesthetic-wallpaper/'><div class="heateor_sss_sharing_ul"><a class="heateor_sss_facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjustjamila.com%2Fcloud-aesthetic-wallpaper%2F%3Futm_source%3Drss%26utm_medium%3Drss%26utm_campaign%3Dcloud-aesthetic-wallpaper" title="Facebook" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#3c589a;width:24px;height:24px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="-5 -5 42 42"><path d="M17.78 27.5V17.008h3.522l.527-4.09h-4.05v-2.61c0-1.182.33-1.99 2.023-1.99h2.166V4.66c-.375-.05-1.66-.16-3.155-.16-3.123 0-5.26 1.905-5.26 5.405v3.016h-3.53v4.09h3.53V27.5h4.223z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_twitter" href="http://twitter.com/intent/tweet?text=40%20Breathtaking%20Cloud%20Aesthetic%20Wallpaper%20For%20iPhones%20%28Free%20Download%21%29&url=https%3A%2F%2Fjustjamila.com%2Fcloud-aesthetic-wallpaper%2F%3Futm_source%3Drss%26utm_medium%3Drss%26utm_campaign%3Dcloud-aesthetic-wallpaper" title="Twitter" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_twitter" style="background-color:#55acee;width:24px;height:24px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="-4 -4 39 39"><path d="M28 8.557a9.913 9.913 0 0 1-2.828.775 4.93 4.93 0 0 0 2.166-2.725 9.738 9.738 0 0 1-3.13 1.194 4.92 4.92 0 0 0-3.593-1.55 4.924 4.924 0 0 0-4.794 6.049c-4.09-.21-7.72-2.17-10.15-5.15a4.942 4.942 0 0 0-.665 2.477c0 1.71.87 3.214 2.19 4.1a4.968 4.968 0 0 1-2.23-.616v.06c0 2.39 1.7 4.38 3.952 4.83-.414.115-.85.174-1.297.174-.318 0-.626-.03-.928-.086a4.935 4.935 0 0 0 4.6 3.42 9.893 9.893 0 0 1-6.114 2.107c-.398 0-.79-.023-1.175-.068a13.953 13.953 0 0 0 7.55 2.213c9.056 0 14.01-7.507 14.01-14.013 0-.213-.005-.426-.015-.637.96-.695 1.795-1.56 2.455-2.55z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_pinterest" onclick="javascript:void( (function() {var e=document.createElement('script' );e.setAttribute('type','text/javascript' );e.setAttribute('charset','UTF-8' );e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());" title="Pinterest" rel="nofollow noopener" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_pinterest" style="background-color:#cc2329;width:24px;height:24px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="-2 -2 35 35"><path fill="#fff" d="M16.539 4.5c-6.277 0-9.442 4.5-9.442 8.253 0 2.272.86 4.293 2.705 5.046.303.125.574.005.662-.33.061-.231.205-.816.27-1.06.088-.331.053-.447-.191-.736-.532-.627-.873-1.439-.873-2.591 0-3.338 2.498-6.327 6.505-6.327 3.548 0 5.497 2.168 5.497 5.062 0 3.81-1.686 7.025-4.188 7.025-1.382 0-2.416-1.142-2.085-2.545.397-1.674 1.166-3.48 1.166-4.689 0-1.081-.581-1.983-1.782-1.983-1.413 0-2.548 1.462-2.548 3.419 0 1.247.421 2.091.421 2.091l-1.699 7.199c-.505 2.137-.076 4.755-.039 5.019.021.158.223.196.314.077.13-.17 1.813-2.247 2.384-4.324.162-.587.929-3.631.929-3.631.46.876 1.801 1.646 3.227 1.646 4.247 0 7.128-3.871 7.128-9.053.003-3.918-3.317-7.568-8.361-7.568z"/></svg></span></a><a class="heateor_sss_button_instagram" href="https://www.instagram.com/" title="Instagram" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#53beee;width:24px;height:24px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" version="1.1" viewbox="-10 -10 148 148" width="100%" height="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><path d="M86,112H42c-14.336,0-26-11.663-26-26V42c0-14.337,11.664-26,26-26h44c14.337,0,26,11.663,26,26v44 C112,100.337,100.337,112,86,112z M42,24c-9.925,0-18,8.074-18,18v44c0,9.925,8.075,18,18,18h44c9.926,0,18-8.075,18-18V42 c0-9.926-8.074-18-18-18H42z" fill="#fff"></path></g><g><path d="M64,88c-13.234,0-24-10.767-24-24c0-13.234,10.766-24,24-24s24,10.766,24,24C88,77.233,77.234,88,64,88z M64,48c-8.822,0-16,7.178-16,16s7.178,16,16,16c8.822,0,16-7.178,16-16S72.822,48,64,48z" fill="#fff"></path></g><g><circle cx="89.5" cy="38.5" fill="#fff" r="5.5"></circle></g></g></svg></span></a><a class="heateor_sss_more" title="More" rel="nofollow noopener" style="font-size: 32px!important;border:0;box-shadow:none;display:inline-block!important;font-size:16px;padding:0 4px;vertical-align: middle;display:inline;" href="https://justjamila.com/cloud-aesthetic-wallpaper/?utm_source=rss&amp;#038;utm_medium=rss&amp;#038;utm_campaign=cloud-aesthetic-wallpaper" onclick="event.preventDefault()"><span class="heateor_sss_svg" style="background-color:#ee8e2d;width:24px;height:24px;border-radius:999px;display:inline-block!important;opacity:1;float:left;font-size:32px!important;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;display:inline;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box;" onclick="heateorSssMoreSharingPopup(this, 'https://justjamila.com/cloud-aesthetic-wallpaper/?utm_source=rss&amp;#038;utm_medium=rss&amp;#038;utm_campaign=cloud-aesthetic-wallpaper', '40%20Breathtaking%20Cloud%20Aesthetic%20Wallpaper%20For%20iPhones%20%28Free%20Download%21%29', '' )"><svg xmlns="http://www.w3.org/2000/svg" style="display:block;border-radius:999px;" width="100%" height="100%" viewbox="-4 -4 38 38"><circle cx="10" cy="15" r="3" fill="#fff"></circle><circle cx="20" cy="10" r="3" fill="#fff"></circle><circle cx="20" cy="20" r="3" fill="#fff"></circle><path d="M 10 15 L 20 10 m 0 10 L 10 15" class="heateor_sss_svg_stroke heateor_sss_no_fill" stroke-width="2" stroke="#fff"></path></svg></span></a></div><div class="heateorSssClear"></div></div><!-- AI CONTENT END 1 -->
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-author">Posted By: <a href="https://justjamila.com/author/justjamilaagmail-com/" class="entry-author-link" rel="author"><span class="entry-author-name">Jamila</span></a></span> &middot; <span class="entry-categories">In: <a href="https://justjamila.com/category/college/" rel="category tag">College</a></span></p></footer></article><div class="prev-next-navigation"><div class="previous"><a href="https://justjamila.com/minimalist-dorm-room/" rel="prev">18 Crazy Gorgeous Minimalist Dorm Room Decor Ideas You&#8217;ll Love</a></div><div class="next"><a href="https://justjamila.com/long-distance-friendship-gifts/" rel="next">25 Long Distance Friendship Gifts Your Besties Will Love</a></div></div><!-- .prev-next-navigation --><div class="related"><div class="wrap"><h3 class="related-title">You&#8217;ll Also Love</h3><div class="related-posts-list" data-columns><div class="related-post"><a class="related-image" href="https://justjamila.com/is-he-into-me/" rel="bookmark" title="Permanent Link to Is He Into Me? 13 Sure Signs He&#8217;s Definitely Obsessed"><img width="500" height="500" src="https://justjamila.com/wp-content/uploads/2022/06/is-he-into-me-500x500.jpg" class="attachment-portfolio size-portfolio" alt="is he into me" loading="lazy" srcset="https://justjamila.com/wp-content/uploads/2022/06/is-he-into-me-500x500.jpg 500w, https://justjamila.com/wp-content/uploads/2022/06/is-he-into-me-150x150.jpg 150w, https://justjamila.com/wp-content/uploads/2022/06/is-he-into-me-320x320.jpg 320w, https://justjamila.com/wp-content/uploads/2022/06/is-he-into-me-300x300.jpg 300w, https://justjamila.com/wp-content/uploads/2022/06/is-he-into-me-100x100.jpg 100w" sizes="(max-width: 500px) 100vw, 500px" /></a><div class="related-title"><a class="related-post-title" href="https://justjamila.com/is-he-into-me/" rel="bookmark" title="Permanent Link to Is He Into Me? 13 Sure Signs He&#8217;s Definitely Obsessed">Is He Into Me? 13 Sure Signs He&#8217;s Definitely Obsessed</a></div></div><div class="related-post"><a class="related-image" href="https://justjamila.com/how-to-manifest-money/" rel="bookmark" title="Permanent Link to How To Manifest Money When You Are Broke"><img width="500" height="500" src="https://justjamila.com/wp-content/uploads/2022/02/how-to-manifest-money-and-abundance-1-500x500.jpg" class="attachment-portfolio size-portfolio" alt="how to manifest money and abundance" loading="lazy" srcset="https://justjamila.com/wp-content/uploads/2022/02/how-to-manifest-money-and-abundance-1-500x500.jpg 500w, https://justjamila.com/wp-content/uploads/2022/02/how-to-manifest-money-and-abundance-1-150x150.jpg 150w, https://justjamila.com/wp-content/uploads/2022/02/how-to-manifest-money-and-abundance-1-320x320.jpg 320w, https://justjamila.com/wp-content/uploads/2022/02/how-to-manifest-money-and-abundance-1-300x300.jpg 300w, https://justjamila.com/wp-content/uploads/2022/02/how-to-manifest-money-and-abundance-1-100x100.jpg 100w" sizes="(max-width: 500px) 100vw, 500px" /></a><div class="related-title"><a class="related-post-title" href="https://justjamila.com/how-to-manifest-money/" rel="bookmark" title="Permanent Link to How To Manifest Money When You Are Broke">How To Manifest Money When You Are Broke</a></div></div><div class="related-post"><a class="related-image" href="https://justjamila.com/how-to-budget-for-grad-school/" rel="bookmark" title="Permanent Link to How To Budget For Grad School And Save Up"><img width="500" height="500" src="https://justjamila.com/wp-content/uploads/2021/12/visual-stories-micheile-pLnaCZiwpIk-unsplash-500x500.jpg" class="attachment-portfolio size-portfolio" alt="how to budget for grad school" loading="lazy" srcset="https://justjamila.com/wp-content/uploads/2021/12/visual-stories-micheile-pLnaCZiwpIk-unsplash-500x500.jpg 500w, https://justjamila.com/wp-content/uploads/2021/12/visual-stories-micheile-pLnaCZiwpIk-unsplash-150x150.jpg 150w, https://justjamila.com/wp-content/uploads/2021/12/visual-stories-micheile-pLnaCZiwpIk-unsplash-320x320.jpg 320w, https://justjamila.com/wp-content/uploads/2021/12/visual-stories-micheile-pLnaCZiwpIk-unsplash-300x300.jpg 300w, https://justjamila.com/wp-content/uploads/2021/12/visual-stories-micheile-pLnaCZiwpIk-unsplash-100x100.jpg 100w" sizes="(max-width: 500px) 100vw, 500px" /></a><div class="related-title"><a class="related-post-title" href="https://justjamila.com/how-to-budget-for-grad-school/" rel="bookmark" title="Permanent Link to How To Budget For Grad School And Save Up">How To Budget For Grad School And Save Up</a></div></div></div></div></div></main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar"><section id="text-4" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"></div>
+		</div></section>
+<section id="user-profile-3" class="widget user-profile"><div class="widget-wrap"><p><span class="alignleft"><img alt='' src='https://secure.gravatar.com/avatar/30ddaff1bd0f5e69bed67f96f24916b0?s=125&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/30ddaff1bd0f5e69bed67f96f24916b0?s=250&#038;d=mm&#038;r=g 2x' class='avatar avatar-125 photo' height='125' width='125' loading='lazy'/></span>Just a life-loving &amp; Cheesecake obsessed USC grad bringing you college hacks, dorm decor ideas, college dating advice, money-making tips, and more!</p>
+</div></section>
+<section id="custom_html-2" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><h4 class="widget-title widgettitle">Follow Me on pinterest!</h4>
+<div class="textwidget custom-html-widget"><div align="center">
+
+<!-- <a href="YOUR FACEBOOK LINK" title="Facebook" target="_blank" rel="noopener">
+<span class="social"><i class="icon-facebook"></i></span></a>
+
+<a href="YOUR TWITTER LINK" title="Twitter" target="_blank" rel="noopener">
+<span class="social"><i class="icon-twitter"></i></span></a>  -->
+
+<a href="https://www.pinterest.com/justjamilaaa" title="Pinterest" target="blank" rel="noopener">
+<span class="social"><i class="icon-pinterest"></i></span></a>
+<a href="mailto:justjamila.contact@gmail.com" title="Email" target="_blank" rel="noopener">
+<span class="social"><i class="icon-email"></i></span></a> 
+
+</div></div></div></section>
+<section id="enews-ext-1" class="widget enews-widget"><div class="widget-wrap"><div class="enews enews-2-fields"><h4 class="widget-title widgettitle">Get The Latest College Tips &#038; Hacks!</h4>
+			<form id="subscribeenews-ext-1" class="enews-form" action="#" method="post"
+				 target="_blank" 				name="enews-ext-1"
+			>
+									<input type="text" id="subbox1" class="enews-subbox enews-fname" value="" aria-label="First Name" placeholder="First Name" name="FNAME" />								<input type="email" value="" id="subbox" class="enews-email" aria-label="Email Address" placeholder="Email Address" name="EMAIL"
+																																			required="required" />
+								<input type="submit" value="I&#039;d Love That!" id="subbutton" class="enews-submit" />
+			</form>
+		</div></div></section>
+<section id="media_image-3" class="widget widget_media_image"><div class="widget-wrap"><a href="https://www.etsy.com/shop/JustJamilaShop"><img width="300" height="300" src="https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-300x300.png" class="image wp-image-4019  attachment-medium size-medium" alt="" loading="lazy" style="max-width: 100%; height: auto;" srcset="https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-300x300.png 300w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-1024x1024.png 1024w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-150x150.png 150w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-768x768.png 768w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-1536x1536.png 1536w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-2048x2048.png 2048w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-750x750.png 750w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-500x500.png 500w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-320x320.png 320w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-600x600.png 600w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-100x100.png 100w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-60x60.png 60w, https://justjamila.com/wp-content/uploads/2021/12/manifestation-bundle-90x90.png 90w" sizes="(max-width: 300px) 100vw, 300px" /></a></div></section>
+<section id="categories-2" class="widget widget_categories"><div class="widget-wrap"><h4 class="widget-title widgettitle">Categories</h4>
+<form action="https://justjamila.com" method="get"><label class="screen-reader-text" for="cat">Categories</label><select  name='cat' id='cat' class='postform' >
+	<option value='-1'>Select Category</option>
+	<option class="level-0" value="16">Birthday Ideas</option>
+	<option class="level-0" value="65">Breakups</option>
+	<option class="level-0" value="3">College</option>
+	<option class="level-0" value="17">College Dorm Decor</option>
+	<option class="level-0" value="4">College Tips</option>
+	<option class="level-0" value="66">Date ideas</option>
+	<option class="level-0" value="7">Dating</option>
+	<option class="level-0" value="67">Dating Tips</option>
+	<option class="level-0" value="60">Designer Dupes</option>
+	<option class="level-0" value="5">Dorm</option>
+	<option class="level-0" value="54">Fashion</option>
+	<option class="level-0" value="20">Gift Guides</option>
+	<option class="level-0" value="69">Make Money</option>
+	<option class="level-0" value="6">Manifestation</option>
+	<option class="level-0" value="53">Manifesting Tips</option>
+	<option class="level-0" value="58">Money</option>
+	<option class="level-0" value="55">Nail Designs</option>
+	<option class="level-0" value="63">Outfit Ideas</option>
+	<option class="level-0" value="64">Relationship advice</option>
+	<option class="level-0" value="59">Save Money</option>
+</select>
+</form>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "cat" );
+	function onCatChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
+			dropdown.parentNode.submit();
+		}
+	}
+	dropdown.onchange = onCatChange;
+})();
+/* ]]> */
+</script>
+
+			</div></section>
+<section id="custom_html-3" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><!-- <div align="center">
+
+<a href="//www.bluehost.com/track/17thavenue/" target="_blank" rel="noopener"> <img border="0" src="//bluehost-cdn.com/media/partner/images/17thavenue/430x288/bh-430x288-01-dy.png"> </a>
+<br />
+<a href="LINK"><img src="http://demo.17thavenuedesigns.net/vivienne/wp-content/uploads/2017/10/vivienne-ad.png" /></a>
+
+</div> --></div></div></section>
+</aside></div></div><div class="vivienne-instagram widget-area"><div><section id="custom_html-8" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"></div></div></section>
+</div></div><footer class="site-footer"><div class="wrap"></div></footer></div><ul id="menu-legal" class="footer-menu"><li id="menu-item-1282" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1282"><a href="https://justjamila.com/privacy/">Privacy Policy</a></li>
+<li id="menu-item-1283" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1283"><a href="https://justjamila.com/disclosure/">Disclosure</a></li>
+<li id="menu-item-1284" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1284"><a href="https://justjamila.com/press/">Terms &#038; Conditions</a></li>
+<li id="menu-item-1285" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1285"><a href="https://justjamila.com/disclosure/">JUST JAMILA IS A PARTICIPANT IN THE AMAZON SERVICES LLC ASSOCIATES PROGRAM, AN AFFILIATE ADVERTISING PROGRAM DESIGNED TO PROVIDE A MEANS FOR SITES TO EARN ADVERTISING FEES BY ADVERTISING AND LINKING TO AMAZON.COM.</a></li>
+</ul><div class="creds"><p>Copyright &copy; 2023 Just Jamila &middot; Theme by <a target="_blank" href="https://17thavenuedesigns.com">17th Avenue</a></p></div><p>Copyright &#x000A9;&nbsp;2023 · <a href="https://17thavenuedesigns.com/shop/vivienne-wordpress-theme/">Vivienne</a> on <a href="https://www.studiopress.com/">Genesis Framework</a> · <a href="https://wordpress.org/">WordPress</a> · <a rel="nofollow" href="https://justjamila.com/wp-login.php">Log in</a></p><a href="#0" class="vivienne-backtotop" title="Back To Top"><span class="dashicons dashicons-arrow-up-alt2"></span></a><script type="rocketlazyloadscript" data-rocket-type='text/javascript'>window.addEventListener('DOMContentLoaded', function() {jQuery(document).ready(function($) {$(".flexslider").flexslider({controlsContainer: "#genesis-responsive-slider",animation: "fade",directionNav: 0,controlNav: 1,animationDuration: 700,slideshowSpeed: 6000    });  });});</script>    <!-- Meta Pixel Event Code -->
+    <script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+        if( "fb_pxl_code" in event.detail.apiResponse){
+          eval(event.detail.apiResponse.fb_pxl_code);
+        }
+      }, false );
+    </script>
+    <!-- End Meta Pixel Event Code -->
+    	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script type='text/javascript' id='ce4wp_form_submit-js-extra'>
+/* <![CDATA[ */
+var ce4wp_form_submit_data = {"siteUrl":"https:\/\/justjamila.com","url":"https:\/\/justjamila.com\/wp-admin\/admin-ajax.php","nonce":"5b2899708b","listNonce":"4eccf0ea0b","activatedNonce":"ba7a2d4aee"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/creative-mail-by-constant-contact/assets/js/block/submit.js?ver=1656774198' id='ce4wp_form_submit-js' defer></script>
+<script type='text/javascript' src='https://justjamila.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.7.0' id='jquery-blockui-js' defer></script>
+<script type='text/javascript' id='wc-add-to-cart-js-extra'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/justjamila.com\/cart\/","is_cart":"","cart_redirect_after_add":"yes"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=6.7.0' id='wc-add-to-cart-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.7.0' id='js-cookie-js' defer></script>
+<script type='text/javascript' id='woocommerce-js-extra'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.7.0' id='woocommerce-js' defer></script>
+<script type='text/javascript' id='wc-cart-fragments-js-extra'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_f053a850824b6e86948e04ff544eafe7","fragment_name":"wc_fragments_f053a850824b6e86948e04ff544eafe7","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.7.0' id='wc-cart-fragments-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/|\/signs-of-blocked-feminine-energy\/|\/powerful-signs-of-male-attraction\/|\/struggling-to-make-friends-in-college\/|\/is-he-falling-in-love-with-me\/|\/signs-hes-not-into-you\/|\/when-do-guys-start-to-miss-you-after-a-breakup\/|\/last-minute-anniversary-gifts-for-him\/|\/casual-date-night-outfits\/|\/how-to-get-him-back-after-acting-psycho\/|\/whos-most-likely-to-questions-couples\/|\/why-did-he-stop-talking-to-me\/|\/how-to-make-a-guy-regret-ghosting-you\/|\/never-force-anyone-to-talk-to-you\/|\/beach-date-ideas\/|\/what-to-wear-in-hawaii\/|\/how-to-respond-when-he-finally-texts-you-back\/|\/funny-first-date-questions\/|\/why-did-he-block-me\/|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/checkout\/|\/cart\/|\/my-account\/|\/wc-api\/v(.*)|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/justjamila.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type='text/javascript' src='https://justjamila.com/wp-content/themes/vivienne.2.2-1/js/offscreen.js?ver=1.0.0' id='vivienne-offscreen-js' defer></script>
+<script type='text/javascript' src='https://justjamila.com/wp-content/themes/vivienne.2.2-1/js/responsive-menu.js?ver=1.0.0' id='vivienne-responsive-menu-js' defer></script>
+<script type='text/javascript' src='https://justjamila.com/wp-content/plugins/woocommerce/assets/js/flexslider/jquery.flexslider.min.js?ver=2.7.2-wc.6.7.0' id='flexslider-js' defer></script>
+<script type='text/javascript' src='https://justjamila.com/wp-content/plugins/official-mailerlite-sign-up-forms/assets/js/jquery.validate.min.js?ver=6.0.3' id='jquery-validation-plugin-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='heateor_sss_sharing_js-js-before'>
+function heateorSssLoadEvent(e) {var t=window.onload;if (typeof window.onload!="function") {window.onload=e}else{window.onload=function() {t();e()}}};	var heateorSssSharingAjaxUrl = 'https://justjamila.com/wp-admin/admin-ajax.php', heateorSssCloseIconPath = 'https://justjamila.com/wp-content/plugins/sassy-social-share/public/../images/close.png', heateorSssPluginIconPath = 'https://justjamila.com/wp-content/plugins/sassy-social-share/public/../images/logo.png', heateorSssHorizontalSharingCountEnable = 0, heateorSssVerticalSharingCountEnable = 0, heateorSssSharingOffset = 0; var heateorSssMobileStickySharingEnabled = 0;var heateorSssCopyLinkMessage = "Link copied.";var heateorSssUrlCountFetched = [], heateorSssSharesText = 'Shares', heateorSssShareText = 'Share';function heateorSssPopup(e) {window.open(e,"popUpWindow","height=400,width=600,left=400,top=100,resizable,scrollbars,toolbar=0,personalbar=0,menubar=no,location=no,directories=no,status")}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://justjamila.com/wp-content/plugins/sassy-social-share/public/js/sassy-social-share-public.js?ver=3.3.42' id='heateor_sss_sharing_js-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="flying-scripts">const loadScriptsTimer=setTimeout(loadScripts,5*1000);const userInteractionEvents=["mouseover","keydown","touchstart","touchmove","wheel"];userInteractionEvents.forEach(function(event){window.addEventListener(event,triggerScriptLoader,{passive:!0})});function triggerScriptLoader(){loadScripts();clearTimeout(loadScriptsTimer);userInteractionEvents.forEach(function(event){window.removeEventListener(event,triggerScriptLoader,{passive:!0})})}
+function loadScripts(){document.querySelectorAll("script[data-type='lazy']").forEach(function(elem){elem.setAttribute("src",elem.getAttribute("data-src"))})}</script>
+    <script>window.lazyLoadOptions={elements_selector:"iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://justjamila.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360">',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script><script>"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script><noscript><link rel='stylesheet' id='genesis-simple-share-plugin-css-css'  href='https://justjamila.com/wp-content/plugins/genesis-simple-share/assets/css/share.min.css?ver=0.1.0' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='genesis-simple-share-genericons-css-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/genesis-simple-share/assets/css/genericons.min.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='vivienne-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/themes/vivienne.2.2-1/style.css?ver=1659294363' type='text/css' media='all' /><link rel='stylesheet' id='wp-block-library-css'  href='https://justjamila.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0.3' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='wc-blocks-vendors-style-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='wc-blocks-style-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='mailerlite_forms.css-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/official-mailerlite-sign-up-forms/assets/css/mailerlite_forms.css?ver=1661941032' type='text/css' media='all' /><link rel='stylesheet' id='wpmenucart-icons-css'  href='https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/css/wpmenucart-icons.min.css?ver=2.12.0' type='text/css' media='all' /><link rel='stylesheet' id='wpmenucart-css'  href='https://justjamila.com/wp-content/plugins/woocommerce-menu-bar-cart/assets/css/wpmenucart-main.min.css?ver=2.12.0' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='woocommerce-layout-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=1659294363' type='text/css' media='only screen and (max-width: 768px)' /><link data-minify="1" rel='stylesheet' id='woocommerce-general-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='woo-checkout-for-digital-goods-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/woo-checkout-for-digital-goods/public/css/woo-checkout-for-digital-goods-public.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='font-awesome-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='dashicons-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='ionicons-css'  href='https://justjamila.com/wp-content/cache/min/1/ionicons/2.0.1/css/ionicons.min.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='vivienne-google-fonts-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/uploads/omgf/vivienne-google-fonts/vivienne-google-fonts.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='custom-stylesheet-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/themes/vivienne.2.2-1/woo/vivienne-woocommerce.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='heateor_sss_frontend_css-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/sassy-social-share/public/css/sassy-social-share-public.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='forget-about-shortcode-buttons-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/forget-about-shortcode-buttons/public/css/button-styles.css?ver=1659294363' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='slider_styles-css'  href='https://justjamila.com/wp-content/cache/min/1/wp-content/plugins/genesis-responsive-slider/assets/style.css?ver=1659294363' type='text/css' media='all' /></noscript></body></html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1673229485 -->

@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,15 +39,9 @@ public class MyImageUtils
         Glide
                 .with(appContext)
                 .load(link)
+                .apply(new RequestOptions())
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(imageView);
     }
 
-    public void load(int drawable, ImageView imageView) {
-        Glide
-                .with(appContext)
-                .load(drawable)
-                .placeholder(R.drawable.ic_launcher_background)
-                .into(imageView);
-    }
 }

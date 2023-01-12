@@ -1,140 +1,127 @@
 package com.example.finalproject;
 
-import android.os.AsyncTask;
+import android.content.Context;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCharacteristics;
+import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.util.Random;
 
-public class LyricsAndFlashActivity extends AppCompatActivity
-{
-
-    private ImageView imageView;
-    private TextView textView;
-    private Button button;
-    private Animation animation;
+public class LyricsAndFlashActivity extends AppCompatActivity{
+    private AppCompatTextView lyricsView;
+    private CameraManager cameraManager;
+    private String cameraId;
+    private boolean isFlashOn = false;
+    private Random rand = new Random();
+    private final Handler flashHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics_flash);
-
-        imageView = findViewById(R.id.image_view);
-        textView = findViewById(R.id.text_view);
-        button = findViewById(R.id.button);
-
-        // Load the flashing lights animation
-        animation = AnimationUtils.loadAnimation(this, R.anim.blink);
-
-        // Set up the button click listener
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Start the flashing lights animation
-                imageView.startAnimation(animation);
-
-                // Retrieve the lyrics from the API
-                new LyricsAsyncTask().execute();
-            }
-        });
-    }
-
-    private class LyricsAsyncTask extends AsyncTask<Void, Void, String> {
-        @Override
-        protected String doInBackground(Void... voids) {
-            // Replace YOUR_API_KEY with your actual API key
-            String apiKey = "43bb51ddb5f920a2d2eca058a2636d1b";
-
-            // Replace YOUR_SONG_TITLE with the actual title of the song
-            String songTitle = "AnotherLove";
-
-            // Encode the song title for use in the URL
-            String encodedSongTitle = null;
-            try {
-                encodedSongTitle = URLEncoder.encode(songTitle, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-            // Set up the API request URL
-            String urlString = "https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?" +
-                    "q_track=" + encodedSongTitle +
-                    "&apikey=" + apiKey;
-
-            try {
-                // Create a URL object from the URL string
-                URL url = new URL(urlString);
-
-                // Open a connection to the URL
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-                // Set the request method to GET
-                connection.setRequestMethod("GET");
-
-                // Set the connection timeout and read timeout to 10 seconds
-                connection.setConnectTimeout(10000);
-                connection.setReadTimeout(10000);
-
-                // Connect to the URL
-                connection.connect();
-
-                // Check the response code
-                int responseCode = connection.getResponseCode();
-                if (responseCode != HttpURLConnection.HTTP_OK) {
-                    // If the response code is not 200 (OK), return an empty string
-                    return "";
-                }
-
-                // Read the response stream and return it as a string
-                InputStream inputStream = connection.getInputStream();
-                return readStream(inputStream);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
+        lyricsView = findViewById(R.id.lyrics_view);
+        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 
 
-        @Override
-        protected void onPostExecute(String lyrics) {
-            // Display the lyrics in the TextView
-            textView.setText(lyrics);
-        }
-    }
-
-    // Method to read the API response stream and return it as a string
-    private String readStream(InputStream stream) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        StringBuilder result = new StringBuilder();
-        String line;
         try {
-            while ((line = reader.readLine()) != null) {
-                result.append(line);
-            }
-        } catch (IOException e) {
+            cameraId = cameraManager.getCameraIdList()[0];
+        } catch (CameraAccessException e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        //MusixMatch Section
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.musixmatch.com/ws/1.1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        MusixMatchAPI musixmatchAPI = retrofit.create(MusixMatchAPI.class);
+
+
+        musixmatchAPI.getLyrics("Yellow", "Coldplay" ,  "43bb51ddb5f920a2d2eca058a2636d1b")
+                .enqueue(new Callback<LyricsData>()
+                {
+                    @Override
+                    public void onResponse(Call<LyricsData> call, Response<LyricsData> response)
+                    {
+                        if (response.body()!=null && response.body().getLyrics() !=null && response.isSuccessful())
+                        {
+                            lyricsView.setText(response.body().getLyrics().getLyricsBody());
+                            Log.d("pttt", response.body().getLyrics().getLyricsBody());
+
+
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<LyricsData> call, Throwable t)
+                    {
+                        //Handle the Error
+                        Log.e("ptt", t.getMessage());
+                    }
+                });
+
+
+
+        // Flash Section :
+
+        if(cameraManager != null)
+        {
             try {
-                stream.close();
-            } catch (IOException e) {
+                cameraManager.setTorchMode(cameraId, true);
+            } catch (CameraAccessException e) {
                 e.printStackTrace();
             }
         }
-        return result.toString();
+
+        try {
+            if (cameraManager.getCameraCharacteristics(cameraId).get(CameraCharacteristics.FLASH_INFO_AVAILABLE))
+            {
+                cameraManager.setTorchMode(cameraId, true);
+            }
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+
+
+        // Turn flash on or off randomly every 5 seconds
+        Runnable flashRunnable = new Runnable()
+        {
+            public void run()
+            {
+                int randomNum = rand.nextInt(1);  // need to change it to 2
+                try
+                {
+
+                    if (randomNum == 0)
+                    {
+                        cameraManager.setTorchMode(cameraId, false);
+                        isFlashOn = false;
+                    } else {
+                        cameraManager.setTorchMode(cameraId, true);
+                        isFlashOn = true;
+                    }
+                } catch (CameraAccessException e) {
+                    e.printStackTrace();
+                }
+                flashHandler.postDelayed(this, 350);
+            }
+        };
+        flashHandler.postDelayed(flashRunnable, 350);
     }
 }
