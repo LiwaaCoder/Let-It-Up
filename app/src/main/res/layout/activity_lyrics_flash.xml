@@ -5,25 +5,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".LyricsAndFlashActivity">
+    tools:context=".LyricsAndFlashActivity"
+    android:background="@drawable/back_lyrics"
+    >
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/lyrics_view"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:scrollbars="vertical"
-        />
+        android:id="@+id/lyrics_TXT_scrolling">
 
-    <Button
-        android:id="@+id/toggle_flash_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Toggle Flash"
-        />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lyrics_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:lineSpacingExtra="@dimen/activity_vertical_margin"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:scrollbars="vertical"
+            />
+
+
+
+    </ScrollView>
+
+
 
 </LinearLayout>

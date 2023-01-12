@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import retrofit2.Call;
@@ -24,18 +25,24 @@ import java.util.Random;
 
 public class LyricsAndFlashActivity extends AppCompatActivity{
     private AppCompatTextView lyricsView;
+    private  ScrollView sc;
     private CameraManager cameraManager;
     private String cameraId;
     private boolean isFlashOn = false;
     private Random rand = new Random();
     private final Handler flashHandler = new Handler();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics_flash);
         lyricsView = findViewById(R.id.lyrics_view);
+        sc = findViewById(R.id.lyrics_TXT_scrolling);
+
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+
+
 
 
         try {
@@ -64,6 +71,18 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
                         {
                             lyricsView.setText(response.body().getLyrics().getLyricsBody());
                             Log.d("pttt", response.body().getLyrics().getLyricsBody());
+
+
+                            // start the scrolling
+                            final Handler h = new Handler();
+                            h.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    sc.fullScroll(View.FOCUS_DOWN);
+                                    h.postDelayed(this, 250);
+                                }
+                            }, 250);
+
 
 
                         }
@@ -104,7 +123,7 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
         {
             public void run()
             {
-                int randomNum = rand.nextInt(1);  // need to change it to 2
+                int randomNum = rand.nextInt(2);
                 try
                 {
 
