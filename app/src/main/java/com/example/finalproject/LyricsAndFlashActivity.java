@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,9 +40,6 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
 
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 
-
-
-
         try {
             cameraId = cameraManager.getCameraIdList()[0];
         } catch (CameraAccessException e) {
@@ -61,36 +56,45 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
         MusixMatchAPI musixmatchAPI = retrofit.create(MusixMatchAPI.class);
 
 
-        musixmatchAPI.getLyrics("Yellow", "Coldplay" ,  "43bb51ddb5f920a2d2eca058a2636d1b")
+        musixmatchAPI.getLyrics("AnotherLove", "TomOdell" ,  "43bb51ddb5f920a2d2eca058a2636d1b")
                 .enqueue(new Callback<LyricsData>()
                 {
                     @Override
                     public void onResponse(Call<LyricsData> call, Response<LyricsData> response)
                     {
-                        if (response.body()!=null && response.body().getLyrics() !=null && response.isSuccessful())
+                        if (response.body()!=null && response.body().getLyrics() !=null)
                         {
                             lyricsView.setText(response.body().getLyrics().getLyricsBody());
-                            Log.d("pttt", response.body().getLyrics().getLyricsBody());
+                            //Log.d("pttt", response.body().getLyrics().getLyricsBody());
 
 
-                            // start the scrolling
+                            // start the scrolling down when lyrics shown
+                            final int lines = lyricsView.getLineCount();
+                            final int duration = lines * 100 ;
+
                             final Handler h = new Handler();
                             h.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    sc.fullScroll(View.FOCUS_DOWN);
-                                    h.postDelayed(this, 250);
+                                    if (sc.getChildAt(0).getBottom() <= (sc.getHeight() + sc.getScrollY()))
+                                    {
+                                        h.removeCallbacks(this);
+                                    } else {
+                                        sc.fullScroll(View.FOCUS_DOWN);
+                                        h.postDelayed(this, duration);
+                                    }
                                 }
-                            }, 250);
+                            }, duration);
 
 
 
-                        }
+
+                            }
+
                     }
                     @Override
                     public void onFailure(Call<LyricsData> call, Throwable t)
                     {
-                        //Handle the Error
                         Log.e("ptt", t.getMessage());
                     }
                 });
@@ -117,8 +121,7 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
             e.printStackTrace();
         }
 
-
-        // Turn flash on or off randomly every 5 seconds
+        // Turn flash on or off randomly
         Runnable flashRunnable = new Runnable()
         {
             public void run()
@@ -138,9 +141,9 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
                 } catch (CameraAccessException e) {
                     e.printStackTrace();
                 }
-                flashHandler.postDelayed(this, 350);
+                flashHandler.postDelayed(this, 200);
             }
         };
-        flashHandler.postDelayed(flashRunnable, 350);
+        flashHandler.postDelayed(flashRunnable, 200);
     }
 }
