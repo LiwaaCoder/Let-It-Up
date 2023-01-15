@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -128,8 +128,6 @@ public class logInActivity extends AppCompatActivity
     }
 
 
-
-
     private void startPhoneNumberVerification(String phone)
     {
         pd.setMessage("Verifying Phone Number");
@@ -182,7 +180,7 @@ public class logInActivity extends AppCompatActivity
                 pd.dismiss();
                 String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
                 Toast.makeText(logInActivity.this,"Logged In as"+phone,Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(logInActivity.this, Concert_Schedule_activity.class);
+                Intent intent = new Intent(logInActivity.this, NavigateActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 finish();

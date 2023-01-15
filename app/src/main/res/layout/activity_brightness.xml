@@ -34,4 +34,13 @@
             android:text="Blue" />
     </LinearLayout>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icon_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="250dp"
+        android:layout_gravity="center"
+        android:src="@drawable/splash_img_logo" />
+
+
 </LinearLayout>

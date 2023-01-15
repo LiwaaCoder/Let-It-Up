@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">LitUp</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -11,4 +11,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="verfication_code">Verfication Code</string>
     <string name="didn_t_get_otp_resend">Didn\'t get OTP? Resend</string>
+    <string name="song_image" />
+    <string name="uplaod_image">Upload Image</string>
 </resources>

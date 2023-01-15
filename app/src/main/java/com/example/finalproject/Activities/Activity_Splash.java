@@ -1,6 +1,7 @@
-package com.example.finalproject;
+package com.example.finalproject.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import android.animation.Animator;
 import android.content.Intent;
@@ -10,6 +11,9 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 
+import com.example.finalproject.MyUtils.MyScreenUtils;
+import com.example.finalproject.R;
+
 
 public class Activity_Splash extends AppCompatActivity
 {
@@ -18,7 +22,7 @@ public class Activity_Splash extends AppCompatActivity
 
     final int ANIM_DURATION = 4400;
 
-    private ImageView splash_IMG_logo;
+    private AppCompatImageView splash_IMG_logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

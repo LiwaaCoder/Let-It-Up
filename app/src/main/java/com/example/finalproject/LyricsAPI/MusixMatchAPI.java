@@ -1,4 +1,6 @@
-package com.example.finalproject;
+package com.example.finalproject.LyricsAPI;
+
+import com.example.finalproject.LyricsAPI.LyricsData;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

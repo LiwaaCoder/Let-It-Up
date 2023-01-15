@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@drawable/login_background"
-    tools:context=".logInActivity">
+    tools:context=".Activities.logInActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icon_phone"

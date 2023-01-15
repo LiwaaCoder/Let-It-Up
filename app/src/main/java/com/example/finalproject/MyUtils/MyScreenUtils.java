@@ -1,12 +1,12 @@
-package com.example.finalproject;
+package com.example.finalproject.MyUtils;
 
 
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MyScreenUtils {
-
+public class MyScreenUtils
+{
     // Full screen, no buttons bar
     public static void hideSystemUI(AppCompatActivity activity) {
         // Enables regular immersive mode.

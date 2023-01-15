@@ -1,6 +1,6 @@
-package com.example.finalproject;
+package com.example.finalproject.LyricsAPI;
 
-import com.example.finalproject.Body;
+import com.example.finalproject.LyricsAPI.Body;
 import com.google.gson.annotations.SerializedName;
 import com.squareup.okhttp.internal.framed.Header;
 

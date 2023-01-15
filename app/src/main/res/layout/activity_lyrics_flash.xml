@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".LyricsAndFlashActivity"
+    tools:context=".Activities.LyricsAndFlashActivity"
     android:background="@drawable/back_lyrics"
     >
 
@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textStyle="bold"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textColor="@color/white"
             android:lineSpacingExtra="@dimen/activity_vertical_margin"
             android:scrollbars="vertical"

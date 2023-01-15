@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.LyricsAPI;
 
 import com.google.gson.annotations.SerializedName;
 
