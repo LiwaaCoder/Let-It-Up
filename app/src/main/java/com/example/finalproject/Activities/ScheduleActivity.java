@@ -44,7 +44,8 @@ public class ScheduleActivity extends AppCompatActivity
 
         // set Firebase Database
         mStorage = FirebaseStorage.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("songs_uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("");
+
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onCancelled(DatabaseError error)

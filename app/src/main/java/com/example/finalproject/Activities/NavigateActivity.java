@@ -51,7 +51,7 @@ public class NavigateActivity extends AppCompatActivity
         btnViewSuggest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(NavigateActivity.this, SuggestActivity.class));
+                startActivity(new Intent(NavigateActivity.this, null));
             }
         });
     }
