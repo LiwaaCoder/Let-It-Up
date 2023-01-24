@@ -7,11 +7,22 @@
     android:orientation="vertical"
     tools:context=".Activities.PickSongActivity">
 
-    <!-- we are using ImageView for displaying image-->
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/rImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" />
+        android:layout_height="201dp"
+        android:layout_marginTop="5dp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/c_Image"
+        android:layout_width="match_parent"
+        android:layout_height="202dp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/l_Image"
+        android:layout_width="match_parent"
+        android:layout_height="237dp" />
+
 
 </LinearLayout>

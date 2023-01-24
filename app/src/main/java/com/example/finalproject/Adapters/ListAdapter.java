@@ -12,7 +12,6 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.finalproject.Activities.SongDetailsActivity;
 import com.example.finalproject.MyUtils.ImageUtils;
 import com.example.finalproject.R;
 

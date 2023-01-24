@@ -1,12 +1,14 @@
 package com.example.finalproject.Activities;
 
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalproject.R;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,20 +16,35 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class PickSongActivity extends AppCompatActivity
-{
+import java.util.HashMap;
+
+public class PickSongActivity extends AppCompatActivity {
+    private HashMap<Integer, Integer> pictureCounts = new HashMap<>();
+
 
     // Initializing the ImageView
-    ImageView rImage;
+    ShapeableImageView pick_IMG_song1;
+    ShapeableImageView pick_IMG_song2;
+    ShapeableImageView pick_IMG_song3;
+
+    private void incrementPictureCount(int pictureId) {
+        if (pictureCounts.containsKey(pictureId)) {
+            pictureCounts.put(pictureId, pictureCounts.get(pictureId) + 1);
+        } else {
+            pictureCounts.put(pictureId, 1);
+        }
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_song);
 
         // getting ImageView by its id
-        rImage = findViewById(R.id.rImage);
+        pick_IMG_song1 = findViewById(R.id.rImage);
+        pick_IMG_song2 = findViewById(R.id.c_Image);
+        pick_IMG_song3 = findViewById(R.id.l_Image);
+
 
         // we will get the default FirebaseDatabase instance
         FirebaseDatabase firebaseDatabase
@@ -43,6 +60,13 @@ public class PickSongActivity extends AppCompatActivity
         DatabaseReference getImage
                 = databaseReference.child("SkyFullOfStars");
 
+        DatabaseReference getImage2
+                = databaseReference.child("Paradise");
+
+        DatabaseReference getImage3
+                = databaseReference.child("vivalavida");
+
+
         // Adding listener for a single change
         // in the data at this location.
         // this listener will triggered once
@@ -51,27 +75,17 @@ public class PickSongActivity extends AppCompatActivity
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(
-                            @NonNull DataSnapshot dataSnapshot)
-                    {
-                        // getting a DataSnapshot for the
-                        // location at the specified relative
-                        // path and getting in the link variable
+                            @NonNull DataSnapshot dataSnapshot) {
                         String link = dataSnapshot.getValue(
                                 String.class);
 
-                        // loading that data into rImage
-                        // variable which is ImageView
-                        Picasso.get().load(link).into(rImage);
+                        Picasso.get().load(link).into(pick_IMG_song1);
                     }
 
-                    // this will called when any problem
-                    // occurs in getting data
                     @Override
                     public void onCancelled(
-                            @NonNull DatabaseError databaseError)
-                    {
-                        // we are showing that error message in
-                        // toast
+                            @NonNull DatabaseError databaseError) {
+
                         Toast
                                 .makeText(PickSongActivity.this,
                                         "Error Loading Image",
@@ -79,5 +93,66 @@ public class PickSongActivity extends AppCompatActivity
                                 .show();
                     }
                 });
+
+
+        getImage2.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(
+                            @NonNull DataSnapshot dataSnapshot) {
+                        String link = dataSnapshot.getValue(
+                                String.class);
+
+                        Picasso.get().load(link).into(pick_IMG_song2);
+                    }
+
+                    @Override
+                    public void onCancelled(
+                            @NonNull DatabaseError databaseError) {
+
+                        Toast
+                                .makeText(PickSongActivity.this,
+                                        "Error Loading Image",
+                                        Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
+
+
+        getImage3.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(
+                            @NonNull DataSnapshot dataSnapshot) {
+                        String link = dataSnapshot.getValue(
+                                String.class);
+
+                        Picasso.get().load(link).into(pick_IMG_song3);
+                    }
+
+                    @Override
+                    public void onCancelled(
+                            @NonNull DatabaseError databaseError) {
+
+                        Toast
+                                .makeText(PickSongActivity.this,
+                                        "Error Loading Image",
+                                        Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
+
+        pick_IMG_song1.setOnClickListener(v -> incrementPictureCount(R.id.rImage));
+
+        pick_IMG_song2.setOnClickListener(v -> incrementPictureCount(R.id.c_Image));
+
+        pick_IMG_song3.setOnClickListener(v -> incrementPictureCount(R.id.l_Image));
+
+
     }
+
+
 }
+
+
+
