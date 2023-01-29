@@ -12,6 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.finalproject.Activities.PickSongActivity;
 import com.example.finalproject.MyUtils.ImageUtils;
 import com.example.finalproject.R;
 
@@ -67,7 +68,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
                 String descrip = newList.getDescription();
                 String imgUri = newList.getImageUrl();
 
-                Intent mIntent = new Intent(mContext, SongDetailsActivity.class);
+                Intent mIntent = new Intent(mContext, PickSongActivity.class);
                 mIntent.putExtra("NAMET", name);
                 mIntent.putExtra("DESCRIT", descrip);
                 mIntent.putExtra("IMGURI", imgUri);
