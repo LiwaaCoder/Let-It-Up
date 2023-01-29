@@ -1,5 +1,5 @@
 Introduction to "Lit-it-up"
-![splash_img_logo](https://user-images.githubusercontent.com/66652532/215299446-039f8f2d-cf6b-49e9-a486-0f8499c8bc54.jpg)![Retrofit_Library-624x354](https://user-images.githubusercontent.com/66652532/215299505-f31f423f-099c-42c0-b66a-ddffb0fa7ea1.png)
+![splash_img_logo](https://user-images.githubusercontent.com/66652532/215299446-039f8f2d-cf6b-49e9-a486-0f8499c8bc54.jpg)
 
 
 
@@ -12,6 +12,10 @@ Features
     - Synchronized flash and lyrics display: The app displays the lyrics of the song being played in real-time, synced with the flash.
     - Brightness control: Users can adjust the brightness of their device during the concert, allowing them to better see the flash and lyrics.
     - Crowd interaction: The app allows the crowd to interact with the concert by showing their device flash along with the concert's flash.
+    
+    
+    <![Retrofit_Library-624x354](https://user-images.githubusercontent.com/66652532/215299505-f31f423f-099c-42c0-b66a-ddffb0fa7ea1.png)width=50% height=50%>
+
 
 implementation:
 - Firebase Storage , RealTime Database , Authentication using phone number.
