@@ -21,17 +21,16 @@ implementation:
   <img src="https://user-images.githubusercontent.com/66652532/215631136-b2d04127-8f36-4085-b9c3-a1bacb50512b.png" width="100" />
   <img src="https://user-images.githubusercontent.com/66652532/215631543-ee068de0-6aa0-4dea-8e8d-4fc5f0804a4b.jpg" width="100" /> 
   <img src="https://user-images.githubusercontent.com/66652532/215631677-a294d757-5501-4e5d-bd29-8b30461e615b.png" width="100" />
-    <img src="https://user-images.githubusercontent.com/66652532/215631900-6afc359f-4025-4534-b798-c4029b600ee7.png" width="100">
+   <img src="https://user-images.githubusercontent.com/66652532/215631900-6afc359f-4025-4534-b798-c4029b600ee7.png" width="100">
 
 </p>
 
 - The app requires Android 4.0 or higher and access to the device's camera flash.
 
 - Usage:
-
-    1.Download the app from the GitHub repository.
-    2.Install the app on your Android device.
-    3.Open the app and select the song you want to play.
-    4.Adjust the brightness of your device as needed.
-    5.Enjoy the interactive concert experience!
+        1.Download the app from the GitHub repository.
+        2.Install the app on your Android device.
+        3.Open the app and select the song you want to play.
+        4.Adjust the brightness of your device as needed.
+        5.Enjoy the interactive concert experience!
 
