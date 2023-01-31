@@ -27,12 +27,6 @@ public class NavigateActivity extends AppCompatActivity
         btnViewbrightness = findViewById(R.id.navigate_BTN_Brightness);
         btnViewSuggest = findViewById(R.id.navigate_BTN_suggest);
 
-        btnViewAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(NavigateActivity.this, ScheduleActivity.class));
-            }
-        });
 
         btnViewlyrics.setOnClickListener(new View.OnClickListener() {
             @Override

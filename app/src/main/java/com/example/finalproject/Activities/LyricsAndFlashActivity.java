@@ -66,7 +66,8 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
         MusixMatchAPI musixmatchAPI = retrofit.create(MusixMatchAPI.class);
 
 
-        musixmatchAPI.getLyrics("AnotherLove", "TomOdell", "43bb51ddb5f920a2d2eca058a2636d1b")
+        String songName = getIntent().getStringExtra("song_name");
+        musixmatchAPI.getLyrics("songName", "", "43bb51ddb5f920a2d2eca058a2636d1b")
                 .enqueue(new Callback<LyricsData>() {
                     @Override
                     public void onResponse(Call<LyricsData> call, Response<LyricsData> response) {
