@@ -21,16 +21,13 @@ implementation:
 - AsyncTask / Handler / Runnable usage
 
 <img src="https://user-images.githubusercontent.com/66652532/215631136-b2d04127-8f36-4085-b9c3-a1bacb50512b.png" width="60" height="60">
+<img src="https://user-images.githubusercontent.com/66652532/215631543-ee068de0-6aa0-4dea-8e8d-4fc5f0804a4b.jpg" width="60" height="60">
+<img src="https://user-images.githubusercontent.com/66652532/215631677-a294d757-5501-4e5d-bd29-8b30461e615b.png" width="60" height="60">
+<img src="https://user-images.githubusercontent.com/66652532/215631900-6afc359f-4025-4534-b798-c4029b600ee7.png" width="60" height="60">
 
-
-
-Technical Details:
-
-- The app is built using the Android operating system and utilizes the device's camera flash to display flash during the concert. The lyrics are displayed on the screen, synced with the flash using the MediaPlayer API. The brightness of the device is controlled using the android.provider.Settings.System.putInt() method.
-Requirements
 
 - The app requires Android 4.0 or higher and access to the device's camera flash.
-Usage
+Usage:
 
     1.Download the app from the GitHub repository.
     2.Install the app on your Android device.
