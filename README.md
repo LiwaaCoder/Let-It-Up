@@ -1,4 +1,6 @@
-lit it up <img src="https://user-images.githubusercontent.com/66652532/215299446-039f8f2d-cf6b-49e9-a486-0f8499c8bc54.jpg" width="100" height="100">
+Lit It Up
+
+<img src="https://user-images.githubusercontent.com/66652532/215299446-039f8f2d-cf6b-49e9-a486-0f8499c8bc54.jpg" width="100" height="100">
 
 
 This project is the final project for an Android course and it aims to create an interactive concert experience for the audience. The app allows users to blink flash and view lyrics at the same time while also controlling the brightness of their device during the concert.
