@@ -20,6 +20,9 @@ implementation:
 - DesignPatterns : Adapter 
 - AsyncTask / Handler / Runnable usage
 
+<img src="https://user-images.githubusercontent.com/66652532/215631136-b2d04127-8f36-4085-b9c3-a1bacb50512b.png" width="100" height="100">
+
+
 
 Technical Details:
 
