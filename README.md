@@ -38,9 +38,12 @@ implementation:
 - The app requires Android 4.0 or higher and access to the device's camera flash.
 
 - Usage:
+<ul>
         1.Download the app from the GitHub repository.
         2.Install the app on your Android device.
         3.Open the app and select the song you want to play.
         4.Adjust the brightness of your device as needed.
-        5.Enjoy the interactive concert experience!
+        5.Enjoy the interactive concert experience!   
+</ul>
+
 
