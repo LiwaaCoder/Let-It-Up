@@ -2,7 +2,7 @@
 <p float="left">
    <img src="https://user-images.githubusercontent.com/66652532/216084006-4a4f1e0d-0f46-4e7b-83a2-dfcb5052bdd4.png" width="100" />
    <img src="https://user-images.githubusercontent.com/66652532/216084191-156bf33e-95a0-493b-a25c-7244f8780541.png" width="100" />
-   <img src="https://user-images.githubusercontent.com/66652532/216084762-7b4a4d68-4097-42c1-b8ba-cda3dc8f1a39.png" width="100" />
+   <img src="https://user-images.githubusercontent.com/66652532/216087921-affab7ae-e7c5-4740-bcc3-6d1ee9515d6f.png" width="100" />
 </p>
 
  Lit It Up 
