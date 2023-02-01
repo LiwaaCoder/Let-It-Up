@@ -1,9 +1,12 @@
 package com.example.finalproject.Callbacks;
 
-public interface PermissionCallback
+ public interface PermissionCallback
+
 {
+
     void onPermissionGranted();
     void onPermissionDenied();
+
 }
 
 

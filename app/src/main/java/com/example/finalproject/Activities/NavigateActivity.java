@@ -11,7 +11,6 @@ import com.google.android.material.button.MaterialButton;
 
 public class NavigateActivity extends AppCompatActivity
 {
-    private MaterialButton btnViewAll;
     private MaterialButton btnViewlyrics;
     private MaterialButton btnViewbrightness;
     private MaterialButton btnViewSuggest;
@@ -22,7 +21,6 @@ public class NavigateActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        btnViewAll = findViewById(R.id.navigate_BTN_ViewSchedule);
         btnViewlyrics = findViewById(R.id.navigate_BTN_Lyrics);
         btnViewbrightness = findViewById(R.id.navigate_BTN_Brightness);
         btnViewSuggest = findViewById(R.id.navigate_BTN_suggest);

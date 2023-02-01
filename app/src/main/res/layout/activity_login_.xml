@@ -11,12 +11,12 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icon_phone"
-        android:layout_width="100dp"
-        android:layout_height="120dp"
+        android:layout_width="97dp"
+        android:layout_height="91dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:backgroundTintMode="screen"
         android:background="@color/white"
+        android:backgroundTintMode="screen"
         android:src="@drawable/ic_login_phone" />
     <LinearLayout
         android:id="@+id/phone"
@@ -24,17 +24,17 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_marginTop="10dp"
-            android:text="Phone Number"
-            android:textColor="@color/black"
             android:background="@color/white"
+            android:text="Phone Number"
             android:textAlignment="center"
-            android:textSize="24sp"
-            />
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
         <TextView
             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -57,16 +57,16 @@
             android:textAlignment="center"
             android:textColor="#000"
             />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/login_BTN_login"
-            android:layout_width="wrap_content"
+            android:layout_width="108dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/black"
 
-            android:text="Log In"
-            />
+            android:text="Log In" />
 
     </LinearLayout>
     <LinearLayout

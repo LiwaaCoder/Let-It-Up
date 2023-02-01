@@ -136,11 +136,15 @@ public class PickSongActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                String SongName = "SkyFullofstars";
                 incrementPictureCount(R.id.rImage);
+
+                String SongName = "SkyFullofstars";
+                String Singer = "ColdPLay";
                 Intent intent = new Intent(PickSongActivity.this, LyricsAndFlashActivity.class);
                 intent.putExtra("song_name", SongName);
+                intent.putExtra("singer",Singer);
                 startActivity(intent);
+
 
             }
         });
@@ -149,6 +153,10 @@ public class PickSongActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 incrementPictureCount(R.id.c_Image);
+                String SongName = "Paradise";
+                Intent intent = new Intent(PickSongActivity.this, LyricsAndFlashActivity.class);
+                intent.putExtra("song_name", SongName);
+                startActivity(intent);
 
             }
         });
@@ -156,7 +164,12 @@ public class PickSongActivity extends AppCompatActivity {
         pick_IMG_song3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 incrementPictureCount(R.id.l_Image);
+                String SongName = "vivalavida";
+                Intent intent = new Intent(PickSongActivity.this, LyricsAndFlashActivity.class);
+                intent.putExtra("song_name", SongName);
+                startActivity(intent);
             }
         });
 

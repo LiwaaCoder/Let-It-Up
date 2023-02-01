@@ -34,9 +34,6 @@ public class logInActivity extends AppCompatActivity
     private ProgressDialog pd;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

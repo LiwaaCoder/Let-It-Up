@@ -15,7 +15,7 @@
         tools:ignore="UselessParent">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:text="Welcome To Concert HUB"
+            android:text="Concert Hub"
             android:gravity="center"
             android:layout_marginTop="35dp"
             android:textStyle="bold"
@@ -30,16 +30,6 @@
             android:layout_margin="25dp"
             android:scaleType="centerCrop"
             android:src="@drawable/coldplay_ic" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/navigate_BTN_ViewSchedule"
-            android:text="View Schedule"
-            app:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/navigate_BTN_Lyrics"
@@ -68,7 +58,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
             android:backgroundTint="@color/teal_200"
-            android:text="Suggest For Us">
+            android:text="Pick Song">
 
         </com.google.android.material.button.MaterialButton>
 

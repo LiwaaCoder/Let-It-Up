@@ -39,10 +39,9 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
     private Runnable flashRunnable;
 
 
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics_flash);
         lyricsView = findViewById(R.id.lyrics_view);
@@ -67,7 +66,7 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
 
 
         String songName = getIntent().getStringExtra("song_name");
-        musixmatchAPI.getLyrics("songName", "", "43bb51ddb5f920a2d2eca058a2636d1b")
+        musixmatchAPI.getLyrics(songName, "Coldplay", "43bb51ddb5f920a2d2eca058a2636d1b")
                 .enqueue(new Callback<LyricsData>() {
                     @Override
                     public void onResponse(Call<LyricsData> call, Response<LyricsData> response) {
@@ -89,11 +88,8 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
                                         h.postDelayed(this, duration);
                                     }
                                 }
-                            }, 500);
-
-
+                            }, 1800);
                         }
-
                     }
 
                     @Override
