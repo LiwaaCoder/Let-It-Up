@@ -37,7 +37,7 @@ implementation:
 
 - The app requires Android 4.0 or higher and access to the device's camera flash.
 
-- Usage:
+Usage:
 <ul>
         <li> 1.Download the app from the GitHub repository.</li>
         <li> 2.Install the app on your Android device.</li>
