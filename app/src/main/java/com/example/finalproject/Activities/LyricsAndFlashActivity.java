@@ -159,6 +159,8 @@ public class LyricsAndFlashActivity extends AppCompatActivity{
     }
 
 
+
+
     @Override
     protected void onStop()
     {
